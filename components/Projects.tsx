@@ -62,7 +62,7 @@ export default function Projects() {
       category: "design",
       description:
         "A logo for a Graphics Design company, showcasing modern design principles and vibrant colors.",
-      image: "https://image2url.com/images/1759576915598-7193a90c-89a0-4e47-af80-36dfb9eba764.png",
+      image: "https://image2url.com/images/1759600625793-1b4ea9ab-db71-4b38-974d-afa41386c14b.png",
       tech: ["Figma", "User Research", "Prototyping", "Design System"],
       link: "#",
     },
