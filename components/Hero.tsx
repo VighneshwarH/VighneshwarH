@@ -49,7 +49,7 @@ export default function Hero() {
               }`}
             >
               <h1
-                className="mb-3 overflow-visible text-4xl font-bold leading-normal text-transparent drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-600 bg-clip-text"
+                className="mb-3 overflow-visible text-3xl font-bold leading-normal text-transparent drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-600 bg-clip-text"
                 style={{ paddingBottom: "0.5rem", lineHeight: "1.2" }}
               >
                 Vighneshwar H
@@ -114,7 +114,7 @@ export default function Hero() {
               {/* Glowing Ring Effect */}
               <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-pulse"></div>
               {/* Main Profile Circle */}
-              <div className="relative w-64 h-64 overflow-hidden border-4 rounded-full shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96 sm:border-8 border-white/60 backdrop-blur-sm">
+              <div className="relative w-56 h-56 overflow-hidden border-4 rounded-full shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96 sm:border-8 border-white/60 backdrop-blur-sm">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20"></div>
                 <img
                   src="https://image2url.com/images/1759576316801-91d13165-efa7-4df5-ab3d-4692acbf0cc5.png"
@@ -142,13 +142,13 @@ export default function Hero() {
         </div>
         {/* Scroll Indicator */}
         <div
-          className={`absolute bottom-4 sm:-bottom-9 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
+          className={`absolute sm:-bottom-28 -bottom-[8px] left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
             mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <div className="animate-bounce">
             <div className="flex items-center justify-center w-6 h-6">
-              <i className="text-xl text-white ri-arrow-down-line sm:text-4xl"></i>
+              <i className="text-xl text-white ri-arrow-down-line sm:text-3xl"></i>
             </div>
           </div>
         </div>
