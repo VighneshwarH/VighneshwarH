@@ -124,16 +124,16 @@ export default function Hero() {
               </div>
               {/* Floating Tech Icons */}
               <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_15s_infinite_linear] ">
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-300 rounded-full -top-4 -left-4 sm:-top-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500 ">
+                <div className="absolute flex items-center justify-center w-10 h-10 delay-300 rounded-full -top-4 -left-4 sm:-top-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500 animate-[spin_15s_infinite_linear] ">
                   <i className="text-lg text-white ri-code-line sm:text-xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-500 rounded-full -top-4 -right-4 sm:-top-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-purple-500 ">
+                <div className="absolute flex items-center justify-center w-10 h-10 delay-500 rounded-full -top-4 -right-4 sm:-top-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-purple-500 animate-[spin_15s_infinite_linear] ">
                   <i className="text-lg text-white ri-palette-line sm:text-xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-700 rounded-full -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 ">
+                <div className="absolute flex items-center justify-center w-10 h-10 delay-700 rounded-full -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 animate-[spin_15s_infinite_linear] ">
                   <i className="text-lg text-white ri-database-line sm:text-xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500">
+                <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500 animate-[spin_15s_infinite_linear] ">
                   <i className="text-lg text-white ri-bar-chart-line sm:text-xl"></i>
                 </div>
               </div>
