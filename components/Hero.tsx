@@ -64,7 +64,7 @@ export default function Hero() {
                 <p className="mb-3 text-lg text-gray-300 sm:text-xl md:text-2xl sm:mb-4">
                   Student • Aspiring Web/Fullstack Developer
                 </p>
-                <p className="mb-2 text-base text-gray-300 sm:text-lg md:text-xl">
+                <p className="mb-2 text-base text-gray-300 sm:text-xl md:text-xl">
                   UI/UX Designer • Data Analyst
                 </p>
                 <p className="max-w-xl mx-auto mb-6 text-sm text-gray-400 sm:text-base md:text-lg sm:mb-8 lg:max-w-2xl lg:mx-0">
