@@ -10,6 +10,8 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
     "next": "^15.5.4",
+    "nodemailer": "^7.0.6",
+    "nodemailer.js": "^0.0.2-security",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
@@ -18,6 +20,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import {email_template} from '../email.config/email_template.js'
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,38 +49,37 @@ export default function Contact() {
   };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitStatus("Submitting...");
+  event.preventDefault();
+  setSubmitStatus("Submitting...");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "c6e0513e-537f-4e67-b0a0-007392f09272", // Replace with your new API key
-          from_name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-      });
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "c6e0513e-537f-4e67-b0a0-007392f09272",
+        from_name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }),
+    });
 
-      const result = await response.json();
-      if (result.success) {
-        setSubmitStatus(
-          "Thank you for your message! I will get back to you soon."
-        );
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus("Oops! Something went wrong. Please try again later.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    const result = await response.json()
+    if (result.success) {
+      setSubmitStatus("Thank you for your message! I will get back to you soon.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } else {
       setSubmitStatus("Oops! Something went wrong. Please try again later.");
     }
+  } catch (error) {
+    console.error("Error:", error);
+    setSubmitStatus("Oops! Something went wrong. Please try again later.");
   }
+}
+
 
   const contactInfo = [
     {
