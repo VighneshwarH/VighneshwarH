@@ -328,8 +328,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <footer className="mt-16 text-center text-gray-400 text-2xl">
-        &copy; {new Date().getFullYear()} Vighneshwar Hebbar. All rights reserved.
+      <footer className="mt-16 text-center text-gray-400 text-lg">
+        &copy; {new Date().getFullYear()} Vighneshwar Hebbar. All rights
+        reserved.
       </footer>
     </section>
   );
