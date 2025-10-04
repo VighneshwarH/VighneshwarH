@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { LuBrainCircuit, LuCode,LuPalette } from "react-icons/lu";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,6 +36,7 @@ export default function Projects() {
       image: "https://image2url.com/images/1759576790701-e46b4dbc-b17e-4488-86d0-447f9c87861a.jpeg",
       tech: ["Figma", "React.js", "Tailwind CSS", "Machine Learning"],
       link: "#",
+      icon:<LuBrainCircuit />
     },
     {
       id: 2,
@@ -45,6 +47,7 @@ export default function Projects() {
       image: "https://image2url.com/images/1759576861793-5d6e7d75-615b-41de-9033-8819675128c2.png",
       tech: ["Next.js", "React", "Tailwind CSS"],
       link: "#",
+      icon:<LuCode/>
     },
     {
       id: 3,
@@ -55,6 +58,7 @@ export default function Projects() {
       image: "https://image2url.com/images/1759599957682-4db37c67-cf43-434e-845f-857d7bd578a0.png",
       tech: ["React", "Tailwind CSS"],
       link: "#",
+      icon:<LuCode/>
     },
     {
       id: 4,
@@ -65,6 +69,7 @@ export default function Projects() {
       image: "https://image2url.com/images/1759601500315-55b239a4-0689-4a21-9048-72c3ca704e3a.png",
       tech: ["Figma", "User Research", "Prototyping", "Design System"],
       link: "#",
+      icon:<LuPalette/>
     },
   ];
 
@@ -174,9 +179,9 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  <div className="absolute flex items-center justify-center px-4 py-2 text-white rounded-full right-5 top-4 bg-gradient-to-r from-purple-600 to-blue-600">
-                    <span className="text-sm capitalize">
-                      {project.category}
+                  <div className="absolute px-4 py-2 text-white rounded-full right-5 top-4 bg-gradient-to-r from-purple-600 to-blue-600">
+                    <span className="text-[16px] capitalize flex items-center justify-center gap-3">
+                      {project.category}{project.icon}
                     </span>
                   </div>
                 </div>
