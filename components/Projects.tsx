@@ -32,7 +32,7 @@ export default function Projects() {
       category: "machine-learning",
       description:
         "A Chatbot which detects emotions from Kannada voice datasets, suggests suitable relaxation activities.",
-      image: "/Emosense.jpeg",
+      image: "https://image2url.com/images/1759576790701-e46b4dbc-b17e-4488-86d0-447f9c87861a.jpeg",
       tech: ["Figma", "React.js", "Tailwind CSS", "Machine Learning"],
       link: "#",
     },
@@ -42,7 +42,7 @@ export default function Projects() {
       category: "frontend",
       description:
         "Responsive portfolio website with smooth animations and modern design patterns.",
-      image: "/Portfolio.png",
+      image: "https://image2url.com/images/1759576861793-5d6e7d75-615b-41de-9033-8819675128c2.png",
       tech: ["Next.js", "React", "Tailwind CSS"],
       link: "#",
     },
@@ -52,7 +52,7 @@ export default function Projects() {
       category: "design",
       description:
         "A logo for a Graphics Design company, showcasing modern design principles and vibrant colors.",
-      image: "/Graphy.png",
+      image: "https://image2url.com/images/1759576915598-7193a90c-89a0-4e47-af80-36dfb9eba764.png",
       tech: ["Figma", "User Research", "Prototyping", "Design System"],
       link: "#",
     },
