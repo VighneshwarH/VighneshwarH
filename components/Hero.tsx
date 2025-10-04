@@ -116,7 +116,7 @@ export default function Hero() {
               <div className="relative w-64 h-64 overflow-hidden border-4 rounded-full shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96 sm:border-8 border-white/60 backdrop-blur-sm">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20"></div>
                 <img
-                  src="/Profile.png"
+                  src="https://image2url.com/images/1759576316801-91d13165-efa7-4df5-ab3d-4692acbf0cc5.png"
                   alt="Vighneshwar H - Profile"
                   className="object-cover object-top w-full h-full"
                 />
