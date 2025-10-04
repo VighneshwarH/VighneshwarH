@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
-        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="https://image2url.com/images/1759576677251-9d91bcf9-d375-4b48-bdc8-0ac009cb3bf5.png" type="image/x-icon" />
       </head>
       <body className={`${geist.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
