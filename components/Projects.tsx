@@ -48,6 +48,16 @@ export default function Projects() {
     },
     {
       id: 3,
+      title: "Ochi.Design",
+      category: "frontend",
+      description:
+        "A Presentation Website for amazing presentations across the world.",
+      image: "https://image2url.com/images/1759599957682-4db37c67-cf43-434e-845f-857d7bd578a0.png",
+      tech: ["React", "Tailwind CSS"],
+      link: "#",
+    },
+    {
+      id: 4,
       title: "Graphy Logo Design",
       category: "design",
       description:
