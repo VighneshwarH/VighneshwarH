@@ -10,7 +10,7 @@ import Navigation from '../components/Navigation';
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative font-[Outfit_Bold]">
       <Navigation />
       <Hero />
       <About />

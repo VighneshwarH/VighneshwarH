@@ -1,4 +1,15 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+
+@font-face {
+    font-family: 'Outfit';
+    src: url(/fonts/Outfit-Regular.ttf);
+}
+@font-face {
+    font-family: 'Outfit_Bold';
+    src: url(/fonts/Outfit-Bold.ttf);
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,3 +19,4 @@
         transform: rotate(360deg);
     }
 }
+

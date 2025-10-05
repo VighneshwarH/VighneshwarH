@@ -61,9 +61,9 @@ export default function Skills() {
     databases: {
       title: 'Databases',
       skills: [
-        { name: 'Oracle SQL', level: 50, icon: 'ri-database-line' },
+        { name: 'Oracle SQL', level: 50, icon: 'ri-database-2-line' },
         { name: 'MongoDB', level: 50, icon: 'ri-database-2-line' },
-        { name: 'MySQL', level: 50, icon: 'ri-database-line' }
+        { name: 'MySQL', level: 50, icon: 'ri-database-2-line' }
       ]
     },
     analysis: {
@@ -85,9 +85,9 @@ export default function Skills() {
   const tabs = [
     { id: 'frontend', label: 'Frontend', icon: 'ri-code-line' },
     { id: 'design', label: 'Design', icon: 'ri-palette-line' },
-    { id: 'programming', label: 'Programming', icon: 'ri-terminal-line' },
-    { id: 'databases', label: 'Databases', icon: 'ri-database-line' },
-    { id: 'analysis', label: 'Data Analysis', icon: 'ri-bar-chart-line' },
+    { id: 'programming', label: 'Programming', icon: 'ri-terminal-box-line' },
+    { id: 'databases', label: 'Databases', icon: 'ri-database-2-line' },
+    { id: 'analysis', label: 'Data Analysis', icon: 'ri-bar-chart-fill' },
     { id: 'tools', label: 'Tools', icon: 'ri-tools-line' }
   ];
 
