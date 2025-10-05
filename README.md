@@ -23,6 +23,8 @@
 
 ###
 
+<br clear = "both"/>
+
 <h2 align="center">About me</h2>
 
 ###
@@ -30,53 +32,48 @@
 <p align="left">.📚 I'm a passionate Computer Science student specializing in Data Science, driven by a desire to blend technical expertise with aesthetic design. My skills span web development, UI/UX design, and data analysis, which allows me to work on a project from concept and design to implementation and insight generation. I believe in continuous learning and crafting digital solutions that are both robust and user-centric.<br>"Transforming data into meaningful insights and designs into intuitive experiences."<br><br>🎯 Goals: Full-Stack Developer/ Data Analyst/ UI/UX Designer<br>🎲 I am very active and quick learner who can understand the problem quickly if it is explained very properly to me.</p>
 
 ###
+<br clear = "both"/>
 
 <h2 align="center">My Tech Skills</h2>
 
-###
-
 <div align="left">
   <img src="https://cdn.simpleicons.org/html5/E34F26" height="40" alt="html5 logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.simpleicons.org/css/1572B6" height="40" alt="css logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.simpleicons.org/react/61DAFB" height="40" alt="react logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="40" alt="tailwindcss logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="nextjs logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
-  <img width="12" />
-  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white&style=for-the-badge" height="40" alt="express logo"  />
-  <img width="12" />
+  <img width="23" />
+  <img src="https://skillicons.dev/icons?i=express" height="40" alt="express logo"  />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://skillicons.dev/icons?i=ai" height="40" alt="adobeillustrator logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" height="40" alt="figma logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" height="40" alt="canva logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
-  <img width="12" />
-  <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="vscode logo"  />
-  <img width="12" />
+  <img width="23" />
+  <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="vscode logo" />
+  <img width="23" />
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
-  <img width="12" />
+  <img width="23" />
   <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
 </div>
 
 ###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/VighneshwarH/VighneshwarH/output/snake.svg" alt="Snake animation" />
-
+<br clear = "both"/>
 ###
 
 <h2 align="center">Education</h2>
@@ -86,6 +83,7 @@
 <p align="left">I'm currently pursuing B.E in Computer Science Data Science at Moodlakatte Institute of Technology, Kundapura having a CGPA of 8.3.<br><br>I have completed my pre-university education in R.N. Shetty Composite PU College Kundapura.<br><br>I have completed my secondary school education in V.K.R Acharya Memorial English MEdium High School, Kundapura.</p>
 
 ###
+<br clear = "both"/>
 
 <h2 align="center">My Projects</h2>
 
@@ -122,7 +120,7 @@
   <img width="12" />
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/github/181717" height="40" alt="github logo"  />
+  <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
 </div>
 
 ###
