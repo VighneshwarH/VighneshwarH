@@ -10,7 +10,7 @@
 
 ###
 
-<h3 align="center">I am Vighneshwar H. I am from Padukone. <br>(Don't ask if I am near Deepika Padukone's house).<br><br>I am an aspiring Full-Stack Developer, Data Analyst and UI/UX Designer</h3>
+<h2 align="center">I am Vighneshwar H. I am from Padukone. <br>(Don't ask if I am near Deepika Padukone's house).<br><br>I am an aspiring Full-Stack Developer, Data Analyst and UI/UX Designer</h2>
 
 ###
 
@@ -23,7 +23,7 @@
 
 ###
 
-<h2 align="left">About me</h2>
+<h2 align="center">About me</h2>
 
 ###
 
@@ -31,18 +31,18 @@
 
 ###
 
-<h2 align="left">My Tech Skills</h2>
+<h2 align="center">My Tech Skills</h2>
 
 ###
 
 <div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
+  <img src="https://cdn.simpleicons.org/html5/E34F26" height="40" alt="html5 logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css logo"  />
+  <img src="https://cdn.simpleicons.org/css/1572B6" height="40" alt="css logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+  <img src="https://cdn.simpleicons.org/react/61DAFB" height="40" alt="react logo"  />
   <img width="12" />
   <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="40" alt="tailwindcss logo"  />
   <img width="12" />
@@ -50,13 +50,13 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height="40" alt="express logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
+  <img width="12" />
+  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white&style=for-the-badge" height="40" alt="express logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" height="40" alt="illustrator logo"  />
+  <img src="https://skillicons.dev/icons?i=ai" height="40" alt="adobeillustrator logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" height="40" alt="figma logo"  />
   <img width="12" />
@@ -64,13 +64,11 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" height="40" alt="c logo"  />
-  <img width="12" />
   <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="vscode logo"  />
   <img width="12" />
   <img src="https://cdn.simpleicons.org/git/F05032" height="40" alt="git logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/github/181717" height="40" alt="github logo"  />
+  <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
 </div>
 
 ###
@@ -81,7 +79,7 @@
 
 ###
 
-<h2 align="left">Education</h2>
+<h2 align="center">Education</h2>
 
 ###
 
@@ -89,11 +87,11 @@
 
 ###
 
-<h2 align="left">My Projects</h2>
+<h2 align="center">My Projects</h2>
 
 ###
 
-<h3 align="left"><a href="https://vighneshwarh.github.io/VighneshwarH">Portfolio</a></h3>
+<h3 align="center"><a href="https://vighneshwarh.github.io/VighneshwarH">Portfolio Website</a></h3>
 
 ###
 
@@ -116,7 +114,7 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/nextdotjs/000000" height="40" alt="nextjs logo"  />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="nextjs logo"  />
   <img width="12" />
   <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" height="40" alt="tailwindcss logo"  />
   <img width="12" />
@@ -129,7 +127,7 @@
 
 ###
 
-<h3 align="left">Ochi Design</h3>
+<h3 align="center">Ochi Design</h3>
 
 ###
 
@@ -161,7 +159,7 @@
 
 ###
 
-<h3 align="left">EMOSENSE - Kannada SER Chatbot (On Going)</h3>
+<h3 align="center">EMOSENSE - Kannada SER Chatbot (On Going)</h3>
 
 ###
 
@@ -193,7 +191,7 @@
 
 ###
 
-<h3 align="left">Graphy Logo Design (On going)</h3>
+<h3 align="center">Graphy Logo Design (On going)</h3>
 
 ###
 
