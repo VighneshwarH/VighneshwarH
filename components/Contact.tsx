@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { RiTelegram2Fill } from "react-icons/ri";
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -318,8 +319,9 @@ export default function Contact() {
                       Sending...
                     </>
                   ) : (
-                    "Send Message"
+                    <div className="flex items-center justify-center gap-2"><p>Send Message</p><RiTelegram2Fill size={20}/></div> 
                   )}
+                 
                 </button>
               </div>
             </form>

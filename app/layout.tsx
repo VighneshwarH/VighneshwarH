@@ -1,8 +1,8 @@
 // If you need client-side features, uncomment the next line:
 // "use client";
 import type { Metadata } from "next";
-import { Pacifico } from "next/font/google";
-import localFont from 'next/font/local'
+import { Pacifico, Outfit } from "next/font/google";
+
 import "./globals.css";
 
 const pacifico = Pacifico({
@@ -12,7 +12,10 @@ const pacifico = Pacifico({
   variable: "--font-pacifico",
 });
 
-
+const outfit = Outfit({
+  display:"swap",
+  subsets:["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Vighneshwar H | Portfolio",
@@ -34,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${pacifico.variable} antialiased`}
+        className={`${pacifico.variable}${outfit.className} antialiased`}
       >
         {children}
       </body>

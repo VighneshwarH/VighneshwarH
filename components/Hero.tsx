@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa6";
-import { RiDownloadLine } from "react-icons/ri";
+import { RiDownloadLine, RiShakeHandsFill, RiShakeHandsLine } from "react-icons/ri";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -82,22 +82,23 @@ export default function Hero() {
               >
                 <button
                   onClick={scrollToProjects}
-                  className="px-6 py-3 text-sm font-semibold text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-base"
+                  className="px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-lg"
                 >
                   View My Work
                 </button>
                 <button
                   onClick={scrollToContact}
-                  className="px-6 py-3 text-sm font-semibold text-white transition-all duration-300 transform border-2 border-white rounded-full cursor-pointer sm:px-8 sm:py-4 hover:bg-white hover:text-purple-900 hover:scale-105 whitespace-nowrap sm:text-base"
+                  className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform border-2 border-white rounded-full cursor-pointer sm:px-8 sm:py-4 hover:bg-white hover:text-purple-900 hover:scale-105 whitespace-nowrap sm:text-lg"
                 >
                   Get In Touch
+                  <RiShakeHandsFill size={20}/>
                 </button>
                 <a
                   download={"Vighneshwar_H_Resume.pdf"}
                   href="/Vighneshwar_H_Resume.pdf"
-                  className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-base"
+                  className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-lg"
                 >
-                  Download Resume <RiDownloadLine size={18} />
+                  Download Resume <RiDownloadLine size={20} />
                 </a>
               </div>
             </div>

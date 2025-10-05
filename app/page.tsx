@@ -10,7 +10,7 @@ import Navigation from '../components/Navigation';
 
 export default function Home() {
   return (
-    <main className="relative font-[Outfit_Bold]">
+    <main className="relative" style={{fontFamily:"Outfit"}}>
       <Navigation />
       <Hero />
       <About />
