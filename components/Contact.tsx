@@ -95,8 +95,8 @@ export default function Contact() {
     {
       icon: "ri-linkedin-line",
       label: "LinkedIn",
-      value: "Vighneshwar Hebbar",
-      href: "https://www.linkedin.com/in/vighneshwar-hebbar-7030a92a0/",
+      value: "Vighneshwar H",
+      href: "https://www.linkedin.com/in/vighneshwar-h-7030a92a0/",
     },
     {
       icon: "ri-github-line",
