@@ -72,9 +72,8 @@
   <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
 </div>
 
-###
 <br clear = "both"/>
-###
+
 
 <h2 align="center">Education</h2>
 
@@ -124,6 +123,7 @@
 </div>
 
 ###
+<hr/>
 
 <h3 align="center">Ochi Design</h3>
 
@@ -156,6 +156,7 @@
 </div>
 
 ###
+<hr/>
 
 <h3 align="center">EMOSENSE - Kannada SER Chatbot (On Going)</h3>
 
@@ -188,6 +189,7 @@
 </div>
 
 ###
+<hr/>
 
 <h3 align="center">Graphy Logo Design (On going)</h3>
 
@@ -212,6 +214,7 @@
 </div>
 
 ###
+<hr/>
 
 <h2 align="left">Connect with me:</h2>
 
