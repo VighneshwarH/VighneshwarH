@@ -135,7 +135,7 @@ export default function Hero() {
                   <i className="text-lg text-white ri-database-line sm:text-xl"></i>
                 </div>
                 <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500 animate-[spin_15s_infinite_linear] ">
-                  <i className="text-lg text-white ri-bar-chart-line sm:text-xl"></i>
+                  <i className="text-lg text-white ri-bar-chart-fill sm:text-xl"></i>
                 </div>
               </div>
             </div>
