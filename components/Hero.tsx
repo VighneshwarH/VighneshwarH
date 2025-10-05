@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FaDownload } from "react-icons/fa6";
-import { RiDownloadLine, RiShakeHandsFill, RiShakeHandsLine } from "react-icons/ri";
+import {
+  RiDownloadLine,
+  RiShakeHandsFill,
+  RiShakeHandsLine,
+} from "react-icons/ri";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -91,7 +95,7 @@ export default function Hero() {
                   className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform border-2 border-white rounded-full cursor-pointer sm:px-8 sm:py-4 hover:bg-white hover:text-purple-900 hover:scale-105 whitespace-nowrap sm:text-lg"
                 >
                   Get In Touch
-                  <RiShakeHandsFill size={20}/>
+                  <RiShakeHandsFill size={20} />
                 </button>
                 <a
                   download={"Vighneshwar_H_Resume.pdf"}
