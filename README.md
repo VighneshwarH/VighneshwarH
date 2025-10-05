@@ -93,7 +93,7 @@
 
 ###
 
-<h3 align="left">[Portfolio](https://vighneshwarh.github.io/VighneshwarH/)</h3>
+<h3 align="left"><a href="https://vighneshwarh.github.io/VighneshwarH">Portfolio</a></h3>
 
 ###
 
