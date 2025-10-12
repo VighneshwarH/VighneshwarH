@@ -115,7 +115,7 @@ export default function Hero() {
               }`}
             >
               {/* Outer Animated Ring */}
-              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-gradient-to-r from-purple-400 to-blue-400 animate-spin"></div>
+              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-gradient-to-r from-purple-400 to-blue-400"></div>
               {/* Glowing Ring Effect */}
               <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-pulse"></div>
               {/* Main Profile Circle */}
