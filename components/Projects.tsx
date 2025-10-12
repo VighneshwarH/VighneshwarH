@@ -44,7 +44,7 @@ export default function Projects() {
       category: "frontend",
       description:
         "Responsive portfolio website with smooth animations and modern design patterns.",
-      image: "https://image2url.com/images/1759576861793-5d6e7d75-615b-41de-9033-8819675128c2.png",
+      image: "https://image2url.com/images/1760277355518-35ab2b45-8506-402e-92ca-edcd50b584c9.png",
       tech: ["Next.js", "React", "Tailwind CSS"],
       link: "#",
       icon:<LuCode/>
