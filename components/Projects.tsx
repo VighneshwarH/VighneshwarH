@@ -72,6 +72,17 @@ export default function Projects() {
       link: "https://www.figma.com/design/fBAiH1TV5G5iSHWSMqACB1/Graphy---Graphic-Design-Web-UI?m=auto&t=mMtp5Ln3Wy7QOnno-6",
       icon:<LuPalette/>
     },
+    {
+      id: 5,
+      title: "Movie Ticket App Design",
+      category: "design",
+      description:
+        "A modern movie ticket app design using Figma.",
+      image: "https://image2url.com/images/1765130611524-17da2698-6d0b-4079-8786-a8085f73daeb.png",
+      tech: ["Figma", "User Research", "Prototyping", "Design System"],
+      link: "https://www.figma.com/design/jGqdlZReFeaIcLvbo1bmsq/Movie-Ticket-App-Design?node-id=0-1",
+      icon:<LuPalette/>
+    },
   ];
 
   const filters = [
