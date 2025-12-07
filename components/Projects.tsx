@@ -68,7 +68,7 @@ export default function Projects() {
         "A logo for a Graphics Design company, showcasing modern design principles and vibrant colors.",
       image: "https://image2url.com/images/1759601500315-55b239a4-0689-4a21-9048-72c3ca704e3a.png",
       tech: ["Figma", "User Research", "Prototyping", "Design System"],
-      link: "#",
+      link: "https://www.figma.com/design/fBAiH1TV5G5iSHWSMqACB1/Graphy---Graphic-Design-Web-UI?m=auto&t=mMtp5Ln3Wy7QOnno-6",
       icon:<LuPalette/>
     },
   ];
