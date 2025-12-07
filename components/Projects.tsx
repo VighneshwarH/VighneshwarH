@@ -78,7 +78,7 @@ export default function Projects() {
       category: "design",
       description:
         "A modern movie ticket app design using Figma.",
-      image: "https://image2url.com/images/1765130611524-17da2698-6d0b-4079-8786-a8085f73daeb.png",
+      image: "https://image2url.com/images/1765131396925-4dd5afb0-1a49-4ee0-907f-da3495d8d64a.png",
       tech: ["Figma", "User Research", "Prototyping", "Design System"],
       link: "https://www.figma.com/design/jGqdlZReFeaIcLvbo1bmsq/Movie-Ticket-App-Design?node-id=0-1",
       icon:<LuPalette/>
