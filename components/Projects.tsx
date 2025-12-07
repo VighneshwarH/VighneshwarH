@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { LuBrainCircuit, LuCode,LuPalette } from "react-icons/lu";
 
@@ -154,9 +155,9 @@ export default function Projects() {
                   <div
                     className={`absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4`}
                   >
-                    <button className="px-4 py-2 font-medium text-purple-600 transition-colors duration-300 bg-white rounded-full cursor-pointer hover:bg-purple-600 hover:text-white whitespace-nowrap">
+                    <Link href={project.link} className="px-4 py-2 font-medium text-purple-600 transition-colors duration-300 bg-white rounded-full cursor-pointer hover:bg-purple-600 hover:text-white whitespace-nowrap">
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
