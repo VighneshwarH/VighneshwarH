@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { LuBrainCircuit, LuCode,LuPalette } from "react-icons/lu";
+import { BiBug } from "react-icons/bi";
+import { BsBug } from "react-icons/bs";
+import { LuBrainCircuit, LuBug, LuCode,LuPalette } from "react-icons/lu";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,6 +85,17 @@ export default function Projects() {
       link: "https://www.figma.com/design/jGqdlZReFeaIcLvbo1bmsq/Movie-Ticket-App-Design?node-id=0-1",
       icon:<LuPalette/>
     },
+    {
+      id: 6,
+      title: "Shoppersstack",
+      category: "testing",
+      description:
+        "A testing project for an e-commerce website, where we can buy designer clothes, accessories and electronics, focusing on identifying and reporting bugs to improve user experience.",
+      image: "https://www.shoppersstack.com/static/media/Group%2016@2x.30cad41047826de227e5.png",
+      tech: ["Manual Testing", "Automated Testing", "Selenium", "API Testing","Fireflink"],
+      link: "https://www.shoppersstack.com/",
+      icon:<LuBug/>
+    },
   ];
 
   const filters = [
@@ -112,7 +125,7 @@ export default function Projects() {
           }`}
         >
           <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            Featured Projects
+            My Projects
           </h2>
           <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
           <p className="max-w-2xl mx-auto text-gray-600">

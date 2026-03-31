@@ -54,7 +54,6 @@ export default function Skills() {
       skills: [
         { name: 'JavaScript', level: 70, icon: 'ri-javascript-line' },
         { name: 'Python', level: 50, icon: 'ri-code-line' },
-        { name: 'C', level: 50, icon: 'ri-terminal-line' },
         { name: 'Java', level: 50, icon: 'ri-java-line' }
       ]
     },
@@ -77,7 +76,8 @@ export default function Skills() {
       title: 'Software Testing',
       skills: [
         { name: 'Manual Testing', level: 60, icon: 'ri-checkbox-circle-line' },
-        { name: 'Automated Testing', level: 50, icon: 'ri-bug-line' }
+        { name: 'Automated Testing', level: 40, icon: 'ri-bug-line' },
+        { name: 'Fireflink', level: 70, icon: 'ri-tools-line' }
       ]
     },
     tools: {
@@ -103,7 +103,7 @@ export default function Skills() {
     <section ref={sectionRef} id="skills" className="min-h-screen py-40 bg-gradient-to-br from-purple-50 to-blue-50">
       <div className="max-w-6xl px-6 mx-auto">
         <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">Technical Skills</h2>
+          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">My Technical Skills</h2>
           <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
           <p className="max-w-3xl mx-auto text-xl text-gray-600">
             A comprehensive overview of my technical expertise across various domains of technology and development.

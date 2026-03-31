@@ -68,10 +68,10 @@ export default function About() {
             <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                As a dedicated Computer Science student pursuing Data Science specialization, I'm passionate about creating innovative digital solutions. My journey spans across frontend development, UI/UX design, and data analysis, allowing me to bridge the gap between technical implementation and user experience.
+                As a dedicated Computer Science student pursuing Data Science specialization, I'm passionate about creating innovative digital solutions. My journey spans across frontend development, UI/UX design, and data analysis, and Software Testing allowing me to bridge the gap between technical implementation and user experience.
               </p>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                I believe in continuous learning and staying updated with the latest technologies. My goal is to become a versatile full-stack developer who can design beautiful interfaces, build robust applications, and derive meaningful insights from data.
+                I believe in continuous learning and staying updated with the latest technologies. My goal is to become a versatile full-stack developer who can design beautiful interfaces, build robust applications, testing the software and ensuring its quality and derive meaningful insights from data.
               </p>
               
               {/* Stats */}
