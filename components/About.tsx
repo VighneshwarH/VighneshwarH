@@ -58,7 +58,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A passionate Computer Science student specializing in Data Science, with a strong foundation in web development, UI/UX design, and data analysis.
+            A passionate Computer Science student specializing in Data Science, with a strong foundation in web development, UI/UX design,data analysis and Software Testing.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function About() {
                   <div className="text-sm text-gray-600">Years of Education</div>
                 </div>
                 <div className="text-center p-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-2">10+</div>
                   <div className="text-sm text-gray-600">Technical Skills</div>
                 </div>
               </div>

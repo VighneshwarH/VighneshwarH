@@ -4,7 +4,6 @@ import { FaDownload } from "react-icons/fa6";
 import {
   RiDownloadLine,
   RiShakeHandsFill,
-  RiShakeHandsLine,
 } from "react-icons/ri";
 
 export default function Hero() {
@@ -69,12 +68,12 @@ export default function Hero() {
                   Student • Aspiring Web/Fullstack Developer
                 </p>
                 <p className="mb-2 text-base text-gray-300 sm:text-xl md:text-xl">
-                  UI/UX Designer • Data Analyst
+                  UI/UX Designer • Data Analyst • Test Engineer
                 </p>
                 <p className="max-w-xl mx-auto mb-6 text-sm text-gray-400 sm:text-base md:text-lg sm:mb-8 lg:max-w-2xl lg:mx-0">
                   Passionate about crafting digital experiences with modern
                   technologies, creating intuitive designs, and transforming
-                  data into meaningful insights
+                  data into meaningful insights and testing the quality of software to ensure a seamless user experience.
                 </p>
               </div>
               <div
@@ -128,18 +127,24 @@ export default function Hero() {
                 />
               </div>
               {/* Floating Tech Icons */}
-              <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_15s_infinite_linear] ">
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-300 rounded-full -top-4 -left-4 sm:-top-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500 animate-[spin_15s_infinite_linear] ">
-                  <i className="text-lg text-white ri-code-line sm:text-xl"></i>
+              <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_20s_linear_infinite]">
+                <div className="absolute flex items-center justify-center w-50 h-50 delay-300 rounded-full -top-[4.4rem] left-5 sm:-top-30 sm:left-30 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-code-line sm:text-2xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-500 rounded-full -top-4 -right-4 sm:-top-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-500 to-purple-500 animate-[spin_15s_infinite_linear] ">
-                  <i className="text-lg text-white ri-palette-line sm:text-xl"></i>
+                <div className="absolute flex items-center justify-center w-50 h-50 delay-500 rounded-full top-[5rem] -right-4 sm:-top-[4.4rem] sm:right-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-palette-fill sm:text-2xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 delay-700 rounded-full -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 animate-[spin_15s_infinite_linear] ">
-                  <i className="text-lg text-white ri-database-line sm:text-xl"></i>
+                <div className="absolute flex items-center justify-center w-50 h-50 delay-700 rounded-full bottom-[5rem] -left-4 sm:-bottom-[4.4rem] sm:left-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-database-fill sm:text-2xl"></i>
                 </div>
-                <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500 animate-[spin_15s_infinite_linear] ">
-                  <i className="text-lg text-white ri-bug-line sm:text-xl"></i>
+                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full -bottom-[4.4rem] right-5 sm:-bottom-15 sm:right-30 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-bar-chart-fill sm:text-2xl"></i>
+                </div>
+                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full bottom-[11rem] -right-[6rem] sm:bottom-300 sm:right-200 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-cyan-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-bug-line sm:text-2xl"></i>
+                </div>
+                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full top-40 -left-[6rem] sm:top-500 sm:-left-200 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500  animate-[spin_10s_linear_infinite]">
+                  <i className="text-lg text-white ri-tools-fill sm:text-2xl"></i>
                 </div>
               </div>
             </div>
@@ -147,7 +152,7 @@ export default function Hero() {
         </div>
         {/* Scroll Indicator */}
         <div
-          className={`absolute sm:-bottom-28 -bottom-[8px] left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
+          className={`absolute sm:-bottom-20 -bottom-[80px] left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
             mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
