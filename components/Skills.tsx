@@ -73,13 +73,6 @@ export default function Skills() {
         { name: 'PowerBI', level: 60, icon: 'ri-bar-chart-line' }
       ]
     },
-    software_testing: {
-      title: 'Software Testing',
-      skills: [
-        { name: 'Manual Testing', level: 60, icon: 'ri-checkbox-circle-line' },
-        { name: 'Automated Testing', level: 50, icon: 'ri-bug-line' }
-      ]
-    },
     tools: {
       title: 'Version Control & Project Management',
       skills: [
@@ -95,7 +88,6 @@ export default function Skills() {
     { id: 'programming', label: 'Programming', icon: 'ri-terminal-box-line' },
     { id: 'databases', label: 'Databases', icon: 'ri-database-2-line' },
     { id: 'analysis', label: 'Data Analysis', icon: 'ri-bar-chart-fill' },
-    { id: 'software_testing', label: 'Testing', icon: 'ri-bug-line' },
     { id: 'tools', label: 'Tools', icon: 'ri-tools-line' }
   ];
 
