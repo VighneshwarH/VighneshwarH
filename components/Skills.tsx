@@ -69,7 +69,8 @@ export default function Skills() {
       title: 'Data Analysis & Visualization',
       skills: [
         { name: 'Excel', level: 60, icon: 'ri-file-excel-line' },
-        { name: 'PowerBI', level: 60, icon: 'ri-bar-chart-line' }
+        { name: 'PowerBI', level: 60, icon: 'ri-bar-chart-line' },
+        { name: 'NumPy', level: 60, icon: '' },
       ]
     },
     software_testing: {

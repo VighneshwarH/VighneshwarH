@@ -6,11 +6,42 @@ import {
   RiShakeHandsFill,
 } from "react-icons/ri";
 
+interface IconPosition {
+  icon: string;
+  gradient: string;
+  x: number;
+  y: number;
+}
+
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [iconPositions, setIconPositions] = useState<IconPosition[]>([]);
 
   useEffect(() => {
     setMounted(true);
+    
+    // Calculate icon positions after mount to avoid hydration mismatch
+    const mobileRadius = 140;
+    const desktopRadius = 240;
+    const radius = window.innerWidth >= 768 ? desktopRadius : mobileRadius;
+    
+    const positions = [
+      { icon: 'ri-code-line', gradient: 'from-purple-500 to-blue-500' },
+      { icon: 'ri-palette-line', gradient: 'from-blue-500 to-purple-500' },
+      { icon: 'ri-database-2-line', gradient: 'from-blue-500 to-cyan-500' },
+      { icon: 'ri-bar-chart-2-line', gradient: 'from-indigo-500 to-purple-500' },
+      { icon: 'ri-bug-line', gradient: 'from-purple-500 to-cyan-500' },
+      { icon: 'ri-tools-line', gradient: 'from-indigo-500 to-purple-500' },
+      { icon: 'ri-lightbulb-line', gradient: 'from-cyan-500 to-blue-500' },
+      { icon: 'ri-git-branch-line', gradient: 'from-purple-500 to-indigo-500' },
+    ].map((item, index) => {
+      const angle = (index / 8) * 360;
+      const x = radius * Math.cos((angle * Math.PI) / 180);
+      const y = radius * Math.sin((angle * Math.PI) / 180);
+      return { ...item, x, y };
+    });
+    
+    setIconPositions(positions);
   }, []);
 
   const scrollToContact = () => {
@@ -107,14 +138,14 @@ export default function Hero() {
             </div>
           </div>
           {/* Right Side - Profile Image with Impressive Shape */}
-          <div className="flex justify-center flex-1 order-1 lg:justify-end lg:order-2">
+          <div className="-z-10 flex justify-center flex-1 order-1 lg:justify-end lg:order-2">
             <div
               className={`relative transform transition-all duration-1000 delay-700 ${
                 mounted ? "scale-100 opacity-100" : "scale-90 opacity-0"
               }`}
             >
               {/* Outer Animated Ring */}
-              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-gradient-to-r from-purple-400 to-blue-400"></div>
+              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-purple-400"></div>
               {/* Glowing Ring Effect */}
               <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-pulse"></div>
               {/* Main Profile Circle */}
@@ -128,24 +159,19 @@ export default function Hero() {
               </div>
               {/* Floating Tech Icons */}
               <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_20s_linear_infinite]">
-                <div className="absolute flex items-center justify-center w-50 h-50 delay-300 rounded-full -top-[4.4rem] left-5 sm:-top-30 sm:left-30 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-blue-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-code-line sm:text-2xl"></i>
-                </div>
-                <div className="absolute flex items-center justify-center w-50 h-50 delay-500 rounded-full top-[5rem] -right-4 sm:-top-[4.4rem] sm:right-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-palette-fill sm:text-2xl"></i>
-                </div>
-                <div className="absolute flex items-center justify-center w-50 h-50 delay-700 rounded-full bottom-[5rem] -left-4 sm:-bottom-[4.4rem] sm:left-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-database-fill sm:text-2xl"></i>
-                </div>
-                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full -bottom-[4.4rem] right-5 sm:-bottom-15 sm:right-30 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-bar-chart-fill sm:text-2xl"></i>
-                </div>
-                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full bottom-[11rem] -right-[6rem] sm:bottom-300 sm:right-200 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-cyan-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-bug-line sm:text-2xl"></i>
-                </div>
-                <div className="absolute flex items-center justify-center w-50 h-50 rounded-full top-40 -left-[6rem] sm:top-500 sm:-left-200 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-purple-500  animate-[spin_10s_linear_infinite]">
-                  <i className="text-lg text-white ri-tools-fill sm:text-2xl"></i>
-                </div>
+                {iconPositions.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`absolute flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r ${item.gradient}`}
+                    style={{
+                      left: '50%',
+                      top: '50%',
+                      transform: `translate(calc(-50% + ${item.x}px), calc(-50% + ${item.y}px))`,
+                    }}
+                  >
+                    <i className={`text-lg md:text-2xl animate-[spin_10s_linear_infinite] text-white ${item.icon}`}></i>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
