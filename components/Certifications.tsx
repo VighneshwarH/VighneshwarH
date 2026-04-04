@@ -35,7 +35,7 @@ export default function Certifications() {
       category: "programming",
       description:
         "Certification in fundamental programming concepts and practices using Python.",
-      image: "/Python_Certificate.jpg",
+      image: "https://image2url.com/r2/default/images/1775328948090-c6458fcb-544e-418a-9502-dfde8fa095cb.jpg",
       tech: ["Python"],
       link: "#",
       icon: <LuCode />
@@ -46,7 +46,7 @@ export default function Certifications() {
       category: "data analysis",
       description:
         "Certification in using PowerBI for data visualization and analysis.",
-      image: "/Power_BI_Certificate.jpg",
+      image: "https://image2url.com/r2/default/images/1775329020204-2fd9f845-5107-4991-90a8-3f9d1e9fdb61.jpg",
       tech: ["PowerBI"],
       link: "#",
       icon: <LuCode />
@@ -57,7 +57,7 @@ export default function Certifications() {
       category: "web development",
       description:
         "Certification in basic web design and development principles, including HTML, CSS, and JavaScript.",
-      image: "/Web_Development_Certificate.jpg",
+      image: "https://image2url.com/r2/default/images/1775328989658-198b45da-c596-4fff-87e4-d34d0bac5174.jpg",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "#",
       icon: <LuCode />
