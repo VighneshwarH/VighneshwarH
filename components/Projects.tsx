@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { BiBug } from "react-icons/bi";
-import { BsBug } from "react-icons/bs";
+import { BsBank} from "react-icons/bs";
+import { GrCart } from "react-icons/gr";
 import { LuBrainCircuit, LuBug, LuCode,LuPalette } from "react-icons/lu";
 
 export default function Projects() {
@@ -88,13 +88,24 @@ export default function Projects() {
     {
       id: 6,
       title: "Shoppersstack",
-      category: "testing",
+      category: "testing-ecommerce",
       description:
         "A testing project for an e-commerce website, where we can buy designer clothes, accessories and electronics, focusing on identifying and reporting bugs to improve user experience.",
       image: "https://www.shoppersstack.com/static/media/Group%2016@2x.30cad41047826de227e5.png",
       tech: ["Manual Testing", "Automated Testing", "Selenium", "API Testing","Fireflink"],
       link: "https://www.shoppersstack.com/",
-      icon:<LuBug/>
+      icon:<><LuBug/><GrCart/></>
+    },
+    {
+      id: 7,
+      title: "Q-Bank",
+      category: "testing-banking",
+      description:
+        "A testing project for an online bank management platform, understanding the functionalities of the platform, identifying and reporting bugs to enhance the security and user experience of the banking application.",
+      image: "https://image2url.com/r2/default/images/1775329317275-ac8190f7-9006-4137-a82a-06537e8a3ff1.png",
+      tech: ["Manual Testing", "Automated Testing", "Selenium", "API Testing","Fireflink"],
+      link: "http://106.51.82.61:9001/",
+      icon:<><LuBug/><BsBank/></>
     },
   ];
 
@@ -105,6 +116,7 @@ export default function Projects() {
     { key: "data", label: "Data Analysis" },
     { key: "programming", label: "Programming" },
     { key: "machine-learning", label: "Machine Learning" },
+    { key: "testing", label: "Testing" },
   ];
 
   const filteredProjects =
