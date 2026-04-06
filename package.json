@@ -10,13 +10,15 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
     "eslint-config-next": "^16.0.7",
+    "framer-motion": "^12.38.0",
     "next": "^16.0.7",
     "nodemailer": "^8.0.4",
     "nodemailer.js": "^0.0.2-security",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-icons": "^5.5.0",
-    "recharts": "^3.0.2"
+    "recharts": "^3.0.2",
+    "remixicon": "^4.9.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

@@ -31,6 +31,22 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -96,7 +112,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu Popup */}
-      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+      <div className={`fixed inset-0 z-40 md:hidden transition-all duration-300 overflow-hidden ${
         mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}>
         {/* Backdrop */}
@@ -106,7 +122,7 @@ export default function Navigation() {
         ></div>
 
         {/* Menu Content */}
-        <div className={`absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl transform transition-all duration-300 ${
+        <div className={`absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-2xl transform transition-all duration-300 overflow-hidden ${
           mobileMenuOpen ? 'translate-y-0 scale-100' : '-translate-y-4 scale-95'
         }`}>
           <div className="p-6">

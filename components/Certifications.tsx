@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
+import { BiBarChart } from "react-icons/bi";
+import { CgWebsite } from "react-icons/cg";
+import { FaReact } from "react-icons/fa";
 import { FaPython } from "react-icons/fa6";
-import { LuAward, LuCode, LuPalette, LuBrainCircuit, LuDatabase, LuShield } from "react-icons/lu";
+import { LuCode } from "react-icons/lu";
 
 export default function Certifications() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +41,7 @@ export default function Certifications() {
       image: "https://image2url.com/r2/default/images/1775328948090-c6458fcb-544e-418a-9502-dfde8fa095cb.jpg",
       tech: ["Python"],
       link: "#",
-      icon: <LuCode />
+      icon: <LuCode size={20} />
     },
     {
       id: 2,
@@ -49,7 +52,7 @@ export default function Certifications() {
       image: "https://image2url.com/r2/default/images/1775329020204-2fd9f845-5107-4991-90a8-3f9d1e9fdb61.jpg",
       tech: ["PowerBI"],
       link: "#",
-      icon: <LuCode />
+      icon: <BiBarChart size={20}/>
     },
     {
       id: 3,
@@ -60,7 +63,7 @@ export default function Certifications() {
       image: "https://image2url.com/r2/default/images/1775328989658-198b45da-c596-4fff-87e4-d34d0bac5174.jpg",
       tech: ["HTML", "CSS", "JavaScript"],
       link: "#",
-      icon: <LuCode />
+      icon: <FaReact size={20} />
     }
   ];
 

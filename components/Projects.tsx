@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { BsBank} from "react-icons/bs";
 import { GrCart } from "react-icons/gr";
@@ -10,7 +11,12 @@ export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const sectionRef = useRef<HTMLElement>(null);
+
+  const handleImageLoad = (id: number) => {
+    setLoadedImages(prev => new Set(prev).add(id));
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,7 +25,7 @@ export default function Projects() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -178,15 +184,26 @@ export default function Projects() {
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
-                style={{ transitionDelay: `${index * 100 + 500}ms` }}
+                style={{ transitionDelay: `${Math.min(index * 50, 300)}ms` }}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className="relative overflow-hidden">
-                  <img
+                <div className="relative overflow-hidden bg-gray-200">
+                  {/* Skeleton Loader */}
+                  {!loadedImages.has(project.id) && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-pulse" />
+                  )}
+                  
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="object-cover object-top w-full h-48 transition-transform duration-500 group-hover:scale-110"
+                    width={400}
+                    height={250}
+                    loading="lazy"
+                    onLoad={() => handleImageLoad(project.id)}
+                    className={`object-cover object-top w-full h-48 transition-all duration-500 group-hover:scale-110 ${
+                      loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
+                    }`}
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4`}

@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,7 +17,7 @@ export default function About() {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -54,17 +55,26 @@ export default function About() {
   return (
     <section ref={sectionRef} id="about" className="py-32 min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          animate={isVisible ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Me</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             A passionate Computer Science student specializing in Data Science, with a strong foundation in web development, UI/UX design,data analysis and Software Testing.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - About Content */}
-          <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <motion.div
+            initial={{ x: -40, opacity: 0 }}
+            animate={isVisible ? { x: 0, opacity: 1 } : { x: -40, opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
@@ -86,14 +96,24 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Education Timeline */}
-          <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+          <motion.div
+            initial={{ x: 40, opacity: 0 }}
+            animate={isVisible ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          >
             <h3 className="text-2xl font-bold text-gray-900 mb-8">Education Timeline</h3>
             <div className="space-y-6">
               {educationTimeline.map((edu, index) => (
-                <div key={index} className="relative">
+                <motion.div
+                  key={index}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={isVisible ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1, ease: "easeOut" }}
+                  className="relative"
+                >
                   {/* Timeline Line */}
                   {index < educationTimeline.length - 1 && (
                     <div className="absolute left-6 top-16 w-0.5 h-16 bg-gradient-to-b from-purple-500 to-blue-500"></div>
@@ -109,10 +129,10 @@ export default function About() {
                       <p className="text-gray-600">{edu.institution}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

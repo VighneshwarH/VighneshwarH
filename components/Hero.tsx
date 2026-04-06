@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FaDownload } from "react-icons/fa6";
 import {
   RiDownloadLine,
   RiShakeHandsFill,
@@ -138,7 +137,7 @@ export default function Hero() {
             </div>
           </div>
           {/* Right Side - Profile Image with Impressive Shape */}
-          <div className="-z-10 flex justify-center flex-1 order-1 lg:justify-end lg:order-2">
+          <div className="-z-10 flex justify-center flex-1 order-1 mb-10 mt-5 lg:justify-end lg:order-2 lg:mb-0 lg:mt-0">
             <div
               className={`relative transform transition-all duration-1000 delay-700 ${
                 mounted ? "scale-100 opacity-100" : "scale-90 opacity-0"
@@ -147,7 +146,7 @@ export default function Hero() {
               {/* Outer Animated Ring */}
               <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-purple-400"></div>
               {/* Glowing Ring Effect */}
-              <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-pulse"></div>
+              <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-[pulse_2s_cubic-bezier(0.4, 0, 0.6, 1)_infinite]"></div>
               {/* Main Profile Circle */}
               <div className="relative w-56 h-56 overflow-hidden border-4 rounded-full shadow-2xl sm:w-80 sm:h-80 md:w-96 md:h-96 sm:border-8 border-white/60 backdrop-blur-sm">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20"></div>
@@ -158,7 +157,7 @@ export default function Hero() {
                 />
               </div>
               {/* Floating Tech Icons */}
-              <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_20s_linear_infinite]">
+              <div className="absolute top-0 w-full h-full duration-1000 ease-in-out animate-[spin_40s_linear_infinite]">
                 {iconPositions.map((item, index) => (
                   <div
                     key={index}

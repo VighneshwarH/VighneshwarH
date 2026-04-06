@@ -2,6 +2,15 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { BiBarChart, BiBug, BiGitBranch } from 'react-icons/bi';
+import { BsGithub} from 'react-icons/bs';
+import { DiMongodb } from 'react-icons/di';
+import { FaFigma, FaTools } from 'react-icons/fa';
+import { FaHtml5, FaJava, FaPython } from 'react-icons/fa6';
+import { GrMysql, GrOracle, GrReactjs } from 'react-icons/gr';
+import { MdChecklist } from 'react-icons/md';
+import { RiFileExcelFill, RiTailwindCssFill } from 'react-icons/ri';
+import { SiCanva, SiJavascript, SiNumpy } from 'react-icons/si';
 
 export default function Skills() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,58 +43,65 @@ export default function Skills() {
   const skillCategories = {
     frontend: {
       title: 'Frontend Development',
+      // skills: [
+      //   { name: 'HTML',icon: 'ri-html5-line' },
+      //   { name: 'CSS',icon: 'ri-css3-fill' },
+      //   { name: 'JavaScript',icon: 'ri-javascript-line' },
+      //   { name: 'React JS',icon: 'ri-reactjs-line' },
+      //   { name: 'TailwindCSS',icon: 'ri-tailwind-css-line' }
+      // ]
       skills: [
-        { name: 'HTML', level: 80, icon: 'ri-html5-line' },
-        { name: 'CSS', level: 80, icon: 'ri-css3-line' },
-        { name: 'JavaScript', level: 70, icon: 'ri-javascript-line' },
-        { name: 'React JS', level: 50, icon: 'ri-reactjs-line' },
-        { name: 'TailwindCSS', level: 50, icon: 'ri-tailwind-css-line' }
+        { name: 'HTML',icon: <FaHtml5 /> },
+        { name: 'CSS',icon: <FaPython /> },
+        { name: 'JavaScript',icon: <SiJavascript /> },
+        { name: 'React JS',icon: <GrReactjs /> },
+        { name: 'TailwindCSS',icon: <RiTailwindCssFill /> }
       ]
     },
     design: {
       title: 'Design Tools',
       skills: [
-        { name: 'Figma', level: 70, icon: 'ri-pen-nib-line' },
-        { name: 'Canva', level: 70, icon: 'ri-palette-line' }
+        { name: 'Figma',icon: <FaFigma/> },
+        { name: 'Canva',icon: <SiCanva /> }
       ]
     },
     programming: {
       title: 'Programming Languages',
       skills: [
-        { name: 'JavaScript', level: 70, icon: 'ri-javascript-line' },
-        { name: 'Python', level: 50, icon: 'ri-code-line' },
-        { name: 'Java', level: 50, icon: 'ri-java-line' }
+        { name: 'JavaScript', icon: <SiJavascript /> },
+        { name: 'Python', icon: <FaPython /> },
+        { name: 'Java', icon: <FaJava /> }
       ]
     },
     databases: {
       title: 'Databases',
       skills: [
-        { name: 'Oracle SQL', level: 50, icon: 'ri-database-2-line' },
-        { name: 'MongoDB', level: 50, icon: 'ri-database-2-line' },
-        { name: 'MySQL', level: 50, icon: 'ri-database-2-line' }
+        { name: 'Oracle SQL', icon: <GrOracle /> },
+        { name: 'MongoDB', icon: <DiMongodb /> },
+        { name: 'MySQL', icon: <GrMysql /> }
       ]
     },
     analysis: {
       title: 'Data Analysis & Visualization',
       skills: [
-        { name: 'Excel', level: 60, icon: 'ri-file-excel-line' },
-        { name: 'PowerBI', level: 60, icon: 'ri-bar-chart-line' },
-        { name: 'NumPy', level: 60, icon: '' },
+        { name: 'Excel',icon: <RiFileExcelFill /> },
+        { name: 'PowerBI',icon: <BiBarChart/> },
+        { name: 'NumPy',icon: <SiNumpy /> },
       ]
     },
     software_testing: {
       title: 'Software Testing',
       skills: [
-        { name: 'Manual Testing', level: 60, icon: 'ri-checkbox-circle-line' },
-        { name: 'Automated Testing', level: 40, icon: 'ri-bug-line' },
-        { name: 'Fireflink', level: 70, icon: 'ri-tools-line' }
+        { name: 'Manual Testing', level: 60, icon: <MdChecklist/> },
+        { name: 'Automated Testing', level: 40, icon: <BiBug /> },
+        { name: 'Fireflink', level: 70, icon: < FaTools /> }
       ]
     },
     tools: {
       title: 'Version Control & Project Management',
       skills: [
-        { name: 'GitHub', level: 90, icon: 'ri-github-line' },
-        { name: 'Git', level: 80, icon: 'ri-git-branch-line' }
+        { name: 'GitHub', level: 90, icon: <BsGithub /> },
+        { name: 'Git', level: 80, icon: <BiGitBranch /> }
       ]
     }
   };
@@ -134,31 +150,17 @@ export default function Skills() {
         {/* Skills Content */}
         <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="p-8 bg-white shadow-xl rounded-2xl">
-            <h3 className="mb-8 text-2xl font-bold text-center text-gray-900">
+            <h3 className="mb-12 text-2xl font-bold text-center text-gray-900">
               {skillCategories[activeTab as keyof typeof skillCategories].title}
             </h3>
             
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex justify-center items-center flex-wrap gap-4">
               {skillCategories[activeTab as keyof typeof skillCategories].skills.map((skill, index) => (
-                <div key={index} className="group">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center justify-center w-8 h-8 text-white rounded-full bg-gradient-to-r from-purple-500 to-blue-500">
-                        <i className={skill.icon}></i>
-                      </div>
-                      <span className="font-semibold text-gray-900">{skill.name}</span>
-                    </div>
-                    <span className="text-sm font-bold text-purple-600">{skill.level}%</span>
+                <div key={index} className="flex flex-col items-center justify-center group transition-transform duration-300 hover:scale-110">
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 text-4xl text-white rounded-full bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg group-hover:shadow-xl transition-shadow">
+                    {skill.icon}
                   </div>
-                  <div className="w-full h-3 overflow-hidden bg-gray-200 rounded-full">
-                    <div
-                      className="h-full transition-all duration-1000 ease-out origin-left transform rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                      style={{
-                        width: isVisible ? `${skill.level}%` : '0%',
-                        transitionDelay: `${index * 100}ms`
-                      }}
-                    ></div>
-                  </div>
+                  <span className="text-sm font-semibold text-center text-gray-700">{skill.name}</span>
                 </div>
               ))}
             </div>

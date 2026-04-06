@@ -4,6 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Image optimization for better performance */
+img {
+  content-visibility: auto;
+  contain: layout style paint;
+}
+
+/* Skeleton loader animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.animate-pulse {
+  animation: shimmer 2s infinite;
+}
+
 @keyframes spin {
     to{
         transform: rotate(360deg);

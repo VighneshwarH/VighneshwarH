@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link
           rel="shortcut icon"
           href="https://image2url.com/images/1759576677251-9d91bcf9-d375-4b48-bdc8-0ac009cb3bf5.png"
@@ -37,7 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${pacifico.variable}${outfit.className} antialiased`}
+        className={`${pacifico.variable}${outfit.className} antialiased m-0 p-0 overflow-x-hidden w-full`}
       >
         {children}
       </body>
