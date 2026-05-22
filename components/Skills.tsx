@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { BiBarChart, BiBug, BiGitBranch } from 'react-icons/bi';
+import { BiBarChart, BiGitBranch } from 'react-icons/bi';
 import { BsGithub} from 'react-icons/bs';
 import { DiMongodb } from 'react-icons/di';
 import { FaFigma, FaTools } from 'react-icons/fa';
@@ -10,7 +10,7 @@ import { FaHtml5, FaJava, FaPython } from 'react-icons/fa6';
 import { GrMysql, GrOracle, GrReactjs } from 'react-icons/gr';
 import { MdChecklist } from 'react-icons/md';
 import { RiFileExcelFill, RiTailwindCssFill } from 'react-icons/ri';
-import { SiCanva, SiJavascript, SiNumpy } from 'react-icons/si';
+import { SiCanva, SiJavascript, SiNumpy, SiSelenium } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
 export default function Skills() {
@@ -87,7 +87,7 @@ export default function Skills() {
       title: 'Software Testing',
       skills: [
         { name: 'Manual Testing', icon: <MdChecklist/> },
-        { name: 'Automated Testing', icon: <BiBug /> },
+        { name: 'Automated Testing', icon: <SiSelenium /> },
         { name: 'Fireflink', icon: < FaTools /> }
       ]
     },
@@ -96,7 +96,8 @@ export default function Skills() {
       skills: [
         { name: 'GitHub', icon: <BsGithub /> },
         { name: 'Git', icon: <BiGitBranch /> },
-        { name: 'VS Code',icon: <VscVscode /> }
+        { name: 'VS Code',icon: <VscVscode /> },
+        { name: 'Selenium', icon: <SiSelenium /> },
       ]
     }
   };
