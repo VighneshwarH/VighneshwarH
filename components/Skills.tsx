@@ -11,6 +11,7 @@ import { GrMysql, GrOracle, GrReactjs } from 'react-icons/gr';
 import { MdChecklist } from 'react-icons/md';
 import { RiFileExcelFill, RiTailwindCssFill } from 'react-icons/ri';
 import { SiCanva, SiJavascript, SiNumpy } from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
 
 export default function Skills() {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,13 +44,6 @@ export default function Skills() {
   const skillCategories = {
     frontend: {
       title: 'Frontend Development',
-      // skills: [
-      //   { name: 'HTML',icon: 'ri-html5-line' },
-      //   { name: 'CSS',icon: 'ri-css3-fill' },
-      //   { name: 'JavaScript',icon: 'ri-javascript-line' },
-      //   { name: 'React JS',icon: 'ri-reactjs-line' },
-      //   { name: 'TailwindCSS',icon: 'ri-tailwind-css-line' }
-      // ]
       skills: [
         { name: 'HTML',icon: <FaHtml5 /> },
         { name: 'CSS',icon: <FaPython /> },
@@ -92,16 +86,17 @@ export default function Skills() {
     software_testing: {
       title: 'Software Testing',
       skills: [
-        { name: 'Manual Testing', level: 60, icon: <MdChecklist/> },
-        { name: 'Automated Testing', level: 40, icon: <BiBug /> },
-        { name: 'Fireflink', level: 70, icon: < FaTools /> }
+        { name: 'Manual Testing', icon: <MdChecklist/> },
+        { name: 'Automated Testing', icon: <BiBug /> },
+        { name: 'Fireflink', icon: < FaTools /> }
       ]
     },
     tools: {
       title: 'Version Control & Project Management',
       skills: [
-        { name: 'GitHub', level: 90, icon: <BsGithub /> },
-        { name: 'Git', level: 80, icon: <BiGitBranch /> }
+        { name: 'GitHub', icon: <BsGithub /> },
+        { name: 'Git', icon: <BiGitBranch /> },
+        { name: 'VS Code',icon: <VscVscode /> }
       ]
     }
   };
