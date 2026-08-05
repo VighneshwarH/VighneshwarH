@@ -85,6 +85,7 @@ export default function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
+                  data-cursor
                   className={`relative px-4 py-2 text-lg font-semibold transition-all duration-300 cursor-pointer whitespace-nowrap ${
                     activeSection === item.id
                       ? 'text-purple-600'

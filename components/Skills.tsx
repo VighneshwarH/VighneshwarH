@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
@@ -12,6 +11,7 @@ import { MdChecklist } from 'react-icons/md';
 import { RiFileExcelFill, RiTailwindCssFill } from 'react-icons/ri';
 import { SiCanva, SiJavascript, SiNumpy, SiSelenium } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
+import Reveal from './Reveal';
 
 export default function Skills() {
   const [isVisible, setIsVisible] = useState(false);
@@ -113,47 +113,58 @@ export default function Skills() {
   ];
 
   return (
-    <section ref={sectionRef} id="skills" className="min-h-screen py-40 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section ref={sectionRef} id="skills" className="min-h-screen py-40 bg-gradient-to-br from-purple-50 to-blue-50 relative">
       <div className="max-w-6xl px-6 mx-auto">
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">My Technical Skills</h2>
-          <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
-          <p className="max-w-3xl mx-auto text-xl text-gray-600">
-            A comprehensive overview of my technical expertise across various domains of technology and development.
-          </p>
-        </div>
+        <Reveal direction="down">
+          <div className="text-center mb-16">
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">My Technical Skills</h2>
+            <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
+            <p className="max-w-3xl mx-auto text-xl text-gray-600">
+              A comprehensive overview of my technical expertise across various domains of technology and development.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Tabs */}
-        <div className={`flex flex-wrap justify-center gap-2 mb-12 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
-                activeTab === tab.id
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md hover:shadow-lg'
-              }`}
-            >
-              <div className="flex items-center justify-center w-5 h-5">
-                <i className={tab.icon}></i>
-              </div>
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        <Reveal direction="up" delay={200}>
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                data-cursor
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 whitespace-nowrap cursor-pointer ${
+                  activeTab === tab.id
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg scale-105'
+                    : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md hover:shadow-lg hover:scale-105'
+                }`}
+              >
+                <div className="flex items-center justify-center w-5 h-5">
+                  <i className={tab.icon}></i>
+                </div>
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Skills Content */}
-        <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <Reveal direction="up" delay={300}>
           <div className="p-8 bg-white shadow-xl rounded-2xl">
             <h3 className="mb-12 text-2xl font-bold text-center text-gray-900">
               {skillCategories[activeTab as keyof typeof skillCategories].title}
             </h3>
-            
+
             <div className="flex justify-center items-center flex-wrap gap-4">
               {skillCategories[activeTab as keyof typeof skillCategories].skills.map((skill, index) => (
-                <div key={index} className="flex flex-col items-center justify-center group transition-transform duration-300 hover:scale-110">
-                  <div className="flex items-center justify-center w-20 h-20 mb-4 text-4xl text-white rounded-full bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg group-hover:shadow-xl transition-shadow">
+                <div
+                  key={`${activeTab}-${index}`}
+                  className="flex flex-col items-center justify-center group transition-transform duration-300 hover:scale-110"
+                  style={{
+                    animation: `fadeInUp 0.5s ease ${index * 80}ms both`,
+                  }}
+                >
+                  <div className="flex items-center justify-center w-20 h-20 mb-4 text-4xl text-white rounded-full bg-gradient-to-r from-purple-500 to-blue-500 shadow-lg group-hover:shadow-xl transition-shadow group-hover:scale-110">
                     {skill.icon}
                   </div>
                   <span className="text-sm font-semibold text-center text-gray-700">{skill.name}</span>
@@ -161,7 +172,7 @@ export default function Skills() {
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

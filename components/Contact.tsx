@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import { RiTelegram2Fill } from "react-icons/ri";
+import Reveal from "./Reveal";
+
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -10,7 +12,6 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  // Removed unused isSubmitting state
   const [submitStatus, setSubmitStatus] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -48,37 +49,36 @@ export default function Contact() {
   };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  setSubmitStatus("Submitting...");
+    event.preventDefault();
+    setSubmitStatus("Submitting...");
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "c6e0513e-537f-4e67-b0a0-007392f09272",
-        from_name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-      }),
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "c6e0513e-537f-4e67-b0a0-007392f09272",
+          from_name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-    const result = await response.json()
-    if (result.success) {
-      setSubmitStatus("Thank you for your message! I will get back to you soon.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } else {
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus("Thank you for your message! I will get back to you soon.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("Oops! Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
       setSubmitStatus("Oops! Something went wrong. Please try again later.");
     }
-  } catch (error) {
-    console.error("Error:", error);
-    setSubmitStatus("Oops! Something went wrong. Please try again later.");
   }
-}
-
 
   const contactInfo = [
     {
@@ -111,85 +111,74 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-24 bg-gradient-to-br from-gray-900 to-purple-900"
+      className="py-24 bg-gradient-to-br from-gray-900 to-purple-900 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div
-          className={`text-center mb-10 transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In Touch
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from
-            you. Let's create something amazing together!
-          </p>
-        </div>
+      {/* Glow orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-purple-600/20 blur-3xl animate-[float-blob_16s_ease-in-out_infinite]" />
+        <div className="absolute -bottom-32 -right-20 w-[28rem] h-[28rem] rounded-full bg-blue-600/20 blur-3xl animate-[float-blob_20s_ease-in-out_infinite_reverse]" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        <Reveal direction="down">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Get In Touch
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Have a project in mind or want to collaborate? I'd love to hear from
+              you. Let's create something amazing together!
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
-          <div
-            className={`transform transition-all duration-1000 delay-300 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-10 opacity-0"
-            }`}
-          >
-            <h3 className="text-2xl font-bold text-white mb-8">
-              Contact Information
-            </h3>
-            <div className="space-y-6">
-              {contactInfo.map((contact, index) => (
-                <a
-                  key={index}
-                  href={contact.href}
-                  target={
-                    contact.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    contact.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="flex items-center space-x-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 cursor-pointer group"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-all duration-300">
-                    <i className={`${contact.icon} text-xl`}></i>
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-400">{contact.label}</div>
-                    <div className="text-white font-semibold">
-                      {contact.value}
+          <Reveal direction="left" delay={200}>
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-8">
+                Contact Information
+              </h3>
+              <div className="space-y-6">
+                {contactInfo.map((contact, index) => (
+                  <a
+                    key={index}
+                    href={contact.href}
+                    target={contact.href.startsWith("http") ? "_blank" : undefined}
+                    rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    data-cursor
+                    className="flex items-center space-x-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 cursor-pointer group"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-all duration-300">
+                      <i className={`${contact.icon} text-xl`}></i>
                     </div>
-                  </div>
-                </a>
-              ))}
-            </div>
+                    <div>
+                      <div className="text-sm text-gray-400">{contact.label}</div>
+                      <div className="text-white font-semibold">
+                        {contact.value}
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
 
-            {/* Additional Info */}
-            <div className="mt-12 p-6 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl backdrop-blur-sm">
-              <h4 className="text-lg font-bold text-white mb-4">
-                Let's Connect!
-              </h4>
-              <p className="text-gray-300 leading-relaxed">
-                I'm always interested in new opportunities, freelance projects,
-                or just having a chat about technology and development. Feel
-                free to reach out through any of the channels above.
-              </p>
+              {/* Additional Info */}
+              <div className="mt-12 p-6 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl backdrop-blur-sm">
+                <h4 className="text-lg font-bold text-white mb-4">
+                  Let's Connect!
+                </h4>
+                <p className="text-gray-300 leading-relaxed">
+                  I'm always interested in new opportunities, freelance projects,
+                  or just having a chat about technology and development. Feel
+                  free to reach out through any of the channels above.
+                </p>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Contact Form */}
-          <div
-            className={`transform transition-all duration-1000 delay-500 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-10 opacity-0"
-            }`}
-          >
+          <Reveal direction="right" delay={200}>
             <form
               id="contact-form"
               onSubmit={handleSubmit}
@@ -220,6 +209,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    data-cursor
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all duration-300 text-sm"
                     placeholder="Enter your full name"
                   />
@@ -239,6 +229,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    data-cursor
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all duration-300 text-sm"
                     placeholder="Enter your email address"
                   />
@@ -258,6 +249,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
+                    data-cursor
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all duration-300 text-sm"
                     placeholder="What's this about?"
                   />
@@ -278,6 +270,7 @@ export default function Contact() {
                     required
                     maxLength={500}
                     rows={5}
+                    data-cursor
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all duration-300 resize-none text-sm"
                     placeholder="Tell me about your project or just say hello..."
                   ></textarea>
@@ -289,10 +282,9 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitStatus === "Submitting..."}
+                  data-cursor-label="Send"
                   className={`w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap cursor-pointer flex items-center justify-center ${
-                    submitStatus === "Submitting..."
-                      ? "opacity-60 cursor-not-allowed"
-                      : ""
+                    submitStatus === "Submitting..." ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >
                   {submitStatus === "Submitting..." ? (
@@ -319,18 +311,19 @@ export default function Contact() {
                       Sending...
                     </>
                   ) : (
-                    <div className="flex items-center justify-center gap-2"><p>Send Message</p><RiTelegram2Fill size={20}/></div> 
+                    <div className="flex items-center justify-center gap-2">
+                      <p>Send Message</p>
+                      <RiTelegram2Fill size={20}/>
+                    </div>
                   )}
-                 
                 </button>
               </div>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
-      <footer className="mt-16 text-center text-gray-400 text-lg">
-        &copy; {new Date().getFullYear()} Vighneshwar Hebbar. All rights
-        reserved.
+      <footer className="relative mt-16 text-center text-gray-400 text-lg">
+        &copy; {new Date().getFullYear()} Vighneshwar Hebbar. All rights reserved.
       </footer>
     </section>
   );

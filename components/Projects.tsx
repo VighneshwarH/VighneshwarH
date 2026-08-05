@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { BsBank} from "react-icons/bs";
 import { GrCart } from "react-icons/gr";
 import { LuBrainCircuit, LuBug, LuCode,LuPalette } from "react-icons/lu";
+import Reveal from "./Reveal";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -134,112 +135,108 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="min-h-screen py-28 bg-gradient-to-br from-gray-50 to-gray-100"
+      className="min-h-screen py-28 bg-gradient-to-br from-gray-50 to-gray-100 relative"
     >
       <div className="px-6 mx-auto max-w-7xl">
-        <div
-          className={`text-center mb-16 transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-            My Projects
-          </h2>
-          <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
-          <p className="max-w-2xl mx-auto text-gray-600">
-            A showcase of my work across development, design, and data analysis
-          </p>
-        </div>
+        <Reveal direction="down">
+          <div className="text-center mb-16">
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              My Projects
+            </h2>
+            <div className="w-20 h-1 mx-auto mb-6 bg-gradient-to-r from-purple-600 to-blue-600"></div>
+            <p className="max-w-2xl mx-auto text-gray-600">
+              A showcase of my work across development, design, and data analysis
+            </p>
+          </div>
+        </Reveal>
 
         {/* Filter Buttons */}
-
-        <div
-          className={`flex flex-wrap justify-center gap-4 mb-12 transform transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          {filters.map((filter) => (
-            <button
-              key={filter.key}
-              onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                activeFilter === filter.key
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg transform scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-50 hover:scale-105 shadow-md"
-              }`}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
+        <Reveal direction="up" delay={200}>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {filters.map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                data-cursor
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                  activeFilter === filter.key
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg transform scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-50 hover:scale-105 shadow-md"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 transform ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
-                }`}
-                style={{ transitionDelay: `${Math.min(index * 50, 300)}ms` }}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
-                <div className="relative overflow-hidden bg-gray-200">
-                  {/* Skeleton Loader */}
-                  {!loadedImages.has(project.id) && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-pulse" />
-                  )}
-                  
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={400}
-                    height={250}
-                    loading="lazy"
-                    onLoad={() => handleImageLoad(project.id)}
-                    className={`object-cover object-top w-full h-48 transition-all duration-500 group-hover:scale-110 ${
-                      loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4`}
-                  >
-                    <Link href={project.link} className="px-4 py-2 font-medium text-purple-600 transition-colors duration-300 bg-white rounded-full cursor-pointer hover:bg-purple-600 hover:text-white whitespace-nowrap">
-                      View Details
-                    </Link>
-                  </div>
-                </div>
+              <Reveal key={project.id} direction="up" delay={Math.min(index * 80, 400)}>
+                <div
+                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 transform h-full"
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                >
+                  <div className="relative overflow-hidden bg-gray-200">
+                    {/* Skeleton Loader */}
+                    {!loadedImages.has(project.id) && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-pulse" />
+                    )}
 
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-purple-600">
-                    {project.title}
-                  </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-gray-600">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 text-xs font-medium text-purple-700 rounded-full bg-gradient-to-r from-purple-100 to-blue-100"
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={400}
+                      height={250}
+                      loading="lazy"
+                      onLoad={() => handleImageLoad(project.id)}
+                      className={`object-cover object-top w-full h-48 transition-all duration-500 group-hover:scale-110 ${
+                        loadedImages.has(project.id) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4`}
+                    >
+                      <Link
+                        href={project.link}
+                        data-cursor-label="Open"
+                        className="px-4 py-2 font-medium text-purple-600 transition-colors duration-300 bg-white rounded-full cursor-pointer hover:bg-purple-600 hover:text-white whitespace-nowrap"
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        View Details
+                      </Link>
+                    </div>
                   </div>
 
-                  <div className="absolute px-4 py-2 text-white rounded-full right-5 top-4 bg-gradient-to-r from-purple-600 to-blue-600">
-                    <span className="text-[16px] capitalize flex items-center justify-center gap-3">
-                      {project.category}{project.icon}
-                    </span>
+                  <div className="p-6 relative">
+                    <h3 className="mb-2 text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-purple-600">
+                      {project.title}
+                    </h3>
+                    <p className="mb-4 text-sm leading-relaxed text-gray-600">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-3 py-1 text-xs font-medium text-purple-700 rounded-full bg-gradient-to-r from-purple-100 to-blue-100"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="absolute px-4 py-2 text-white rounded-full right-5 top-4 bg-gradient-to-r from-purple-600 to-blue-600">
+                      <span className="text-[16px] capitalize flex items-center justify-center gap-3">
+                        {project.category}{project.icon}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         ) : (

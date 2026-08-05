@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   RiDownloadLine,
   RiShakeHandsFill,
@@ -15,15 +15,16 @@ interface IconPosition {
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const [iconPositions, setIconPositions] = useState<IconPosition[]>([]);
+  const [scrollY, setScrollY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setMounted(true);
-    
-    // Calculate icon positions after mount to avoid hydration mismatch
+
     const mobileRadius = 140;
     const desktopRadius = 240;
     const radius = window.innerWidth >= 768 ? desktopRadius : mobileRadius;
-    
+
     const positions = [
       { icon: 'ri-code-line', gradient: 'from-purple-500 to-blue-500' },
       { icon: 'ri-palette-line', gradient: 'from-blue-500 to-purple-500' },
@@ -39,30 +40,38 @@ export default function Hero() {
       const y = radius * Math.sin((angle * Math.PI) / 180);
       return { ...item, x, y };
     });
-    
+
     setIconPositions(positions);
+
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToProjects = () => {
     const element = document.getElementById("projects");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
-      className="relative flex items-center justify-center min-h-screen pt-20 overflow-hidden bg-gradient-to-br from-gray-900 to-violet-900"
+      className="relative flex items-center justify-center min-h-screen pt-20 overflow-hidden bg-gradient-to-br from-gray-900 via-violet-900 to-gray-900"
     >
-      {/* Animated Background Elements */}
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[28rem] h-[28rem] rounded-full bg-purple-600/30 blur-3xl animate-[float-blob_14s_ease-in-out_infinite]" />
+        <div className="absolute top-1/3 -right-32 w-[32rem] h-[32rem] rounded-full bg-blue-600/25 blur-3xl animate-[float-blob_18s_ease-in-out_infinite_reverse]" />
+        <div className="absolute -bottom-40 left-1/3 w-[30rem] h-[30rem] rounded-full bg-pink-600/20 blur-3xl animate-[float-blob_16s_ease-in-out_infinite]" />
+      </div>
+
+      {/* Floating dots */}
       <div className="absolute inset-0 z-10">
         <div className="absolute w-16 h-16 rounded-full top-32 left-4 sm:left-10 sm:w-20 sm:h-20 bg-purple-500/20 animate-pulse"></div>
         <div className="absolute w-12 h-12 rounded-full top-44 right-4 sm:right-20 sm:w-16 sm:h-16 bg-blue-500/20 animate-pulse"></div>
@@ -70,28 +79,27 @@ export default function Hero() {
         <div className="absolute w-20 h-20 rounded-full bottom-20 right-4 sm:right-10 sm:w-24 sm:h-24 bg-cyan-500/20 animate-pulse"></div>
       </div>
 
-      <div className="relative z-20 w-full px-4 py-8 mx-auto max-w-7xl sm:px-6">
+      <div
+        className="relative z-20 w-full px-4 py-8 mx-auto max-w-7xl sm:px-6"
+        style={{ transform: `translateY(${scrollY * 0.15}px)`, opacity: `${Math.max(0, 1 - scrollY / 600)}` }}
+      >
         <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-12">
           {/* Left Side - Text Content */}
           <div className="flex-1 order-2 text-center text-white lg:text-left lg:order-1">
             <div
               className={`transform transition-all duration-1000 ${
-                mounted
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+                mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
             >
               <h1
-                className="mb-3 overflow-visible text-3xl font-bold leading-normal text-transparent drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-600 bg-clip-text"
+                className="mb-3 overflow-visible text-3xl font-bold leading-normal text-transparent drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text animate-gradient-x"
                 style={{ paddingBottom: "0.5rem", lineHeight: "1.2" }}
               >
                 Vighneshwar H
               </h1>
               <div
                 className={`transform transition-all duration-1000 delay-300 ${
-                  mounted
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
+                  mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
               >
                 <p className="mb-3 text-lg text-gray-300 sm:text-xl md:text-2xl sm:mb-4">
@@ -108,19 +116,19 @@ export default function Hero() {
               </div>
               <div
                 className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start transform transition-all duration-1000 delay-500 ${
-                  mounted
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-10 opacity-0"
+                  mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
               >
                 <button
                   onClick={scrollToProjects}
+                  data-cursor-label="View"
                   className="px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-lg"
                 >
                   View My Work
                 </button>
                 <button
                   onClick={scrollToContact}
+                  data-cursor-label="Say Hi"
                   className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform border-2 border-white rounded-full cursor-pointer sm:px-8 sm:py-4 hover:bg-white hover:text-purple-900 hover:scale-105 whitespace-nowrap sm:text-lg"
                 >
                   Get In Touch
@@ -129,6 +137,7 @@ export default function Hero() {
                 <a
                   download={"Vighneshwar_H_Resume.pdf"}
                   href="https://www.image2url.com/r2/default/documents/1779435016699-0b4aad11-8463-4633-b909-6365836ac1f3.pdf"
+                  data-cursor-label="PDF"
                   className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white transition-all duration-300 transform rounded-full shadow-lg cursor-pointer sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:scale-105 hover:shadow-xl whitespace-nowrap sm:text-lg"
                 >
                   Download Resume <RiDownloadLine size={20} />
@@ -136,15 +145,18 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          {/* Right Side - Profile Image with Impressive Shape */}
-          <div className="-z-10 flex justify-center flex-1 order-1 mb-10 mt-5 lg:justify-end lg:order-2 lg:mb-0 lg:mt-0">
+          {/* Right Side - Profile Image */}
+          <div
+            className="-z-10 flex justify-center flex-1 order-1 mb-10 mt-5 lg:justify-end lg:order-2 lg:mb-0 lg:mt-0"
+            style={{ transform: `translateY(${scrollY * -0.08}px)` }}
+          >
             <div
               className={`relative transform transition-all duration-1000 delay-700 ${
                 mounted ? "scale-100 opacity-100" : "scale-90 opacity-0"
               }`}
             >
               {/* Outer Animated Ring */}
-              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-purple-400"></div>
+              <div className="absolute inset-0 border-2 rounded-full sm:border-4 border-purple-400 animate-[spin_24s_linear_infinite]"></div>
               {/* Glowing Ring Effect */}
               <div className="absolute rounded-full -inset-2 sm:-inset-4 bg-gradient-to-r from-purple-400/30 via-pink-400/30 to-blue-400/30 blur-sm animate-[pulse_2s_cubic-bezier(0.4, 0, 0.6, 1)_infinite]"></div>
               {/* Main Profile Circle */}

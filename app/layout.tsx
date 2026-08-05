@@ -2,6 +2,9 @@
 // "use client";
 import type { Metadata } from "next";
 import { Pacifico, Outfit } from "next/font/google";
+import CustomCursor from "../components/CustomCursor";
+import AnimatedBackground from "../components/AnimatedBackground";
+import ScrollProgress from "../components/ScrollProgress";
 
 import "./globals.css";
 
@@ -40,6 +43,9 @@ export default function RootLayout({
       <body
         className={`${pacifico.variable}${outfit.className} antialiased m-0 p-0 overflow-x-hidden w-full`}
       >
+        <CustomCursor />
+        <ScrollProgress />
+        <AnimatedBackground />
         {children}
       </body>
     </html>
