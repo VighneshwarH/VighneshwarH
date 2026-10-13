@@ -1,33 +1,24 @@
-# Node modules
-node_modules/
-
-# Build output
-.next/
-
-# Environment variables (if you add them later)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 # Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# OS-specific
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# IDE/editor configs (optional but recommended)
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
-
-# TypeScript build cache
-*.tsbuildinfo
-
-# Optional: coverage reports
-coverage/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
