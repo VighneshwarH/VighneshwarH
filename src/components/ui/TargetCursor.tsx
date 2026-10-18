@@ -2,27 +2,20 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useReducedMotion } from 'framer-motion'
 
-const inactiveCornerPositions = [
-  { x: -18, y: -18 },
-  { x: 6, y: -18 },
-  { x: 6, y: 6 },
-  { x: -18, y: 6 },
+const TARGET_SELECTOR = '[data-cursor-target]'
+
+const restingCornerPositions = [
+  { x: -13, y: -13 },
+  { x: 4, y: -13 },
+  { x: 4, y: 4 },
+  { x: -13, y: 4 },
 ]
 
-const TARGET_SELECTOR = [
-  'h1',
-  'h4',
-  '.hero-intro',
-  '.hero-title',
-  '.skill-row',
-  'img',
-  'education-card',
-  'project-card',
-  '.caption',
-  '.label',
-  'p[data-cursor-target]',
-  'a',
-].join(',')
+function getInteractiveTarget(target: EventTarget | null) {
+  if (!(target instanceof Element)) return null
+
+  return target.closest<HTMLElement>(TARGET_SELECTOR)
+}
 
 export function TargetCursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -30,218 +23,176 @@ export function TargetCursor() {
 
   useEffect(() => {
     const cursor = cursorRef.current
-
     if (!cursor || reducedMotion) return
 
-    const isTouchDevice = window.matchMedia(
-      '(hover: none), (pointer: coarse)',
-    ).matches
+    const root = document.documentElement
+    const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const corners = Array.from(cursor.querySelectorAll<HTMLElement>('[data-cursor-corner]'))
+    let clearDesktopCursor = () => {}
 
-    /*
-     * Desktop / mouse only.
-     *
-     * On touch and tablet devices we don't create a fake
-     * cursor because there is no persistent pointer to follow.
-     */
-    if (isTouchDevice) {
-      document.documentElement.classList.add('has-touch-interface')
+    const resetVisuals = () => {
+      root.classList.remove('has-desktop-cursor')
+      cursor.dataset.visible = 'false'
+      cursor.dataset.target = 'false'
+    }
+
+    const setupDesktopCursor = () => {
+      root.classList.add('has-desktop-cursor')
+
+      const pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
+      const cursorPosition = { ...pointer }
+      let activeTarget: HTMLElement | null = null
+
+      const setCornerPositions = (
+        positions: { x: number; y: number }[],
+        duration = 0,
+      ) => {
+        corners.forEach((corner, index) => {
+          const position = positions[index]
+
+          if (duration > 0) {
+            gsap.to(corner, {
+              ...position,
+              duration,
+              ease: 'power3.out',
+              overwrite: 'auto',
+            })
+            return
+          }
+
+          gsap.set(corner, position)
+        })
+      }
+
+      const getMagneticPosition = () => {
+        if (!activeTarget) return pointer
+
+        const bounds = activeTarget.getBoundingClientRect()
+        const centerX = bounds.left + bounds.width / 2
+        const centerY = bounds.top + bounds.height / 2
+        const magnetism = Math.min(0.12, 18 / Math.max(bounds.width, bounds.height, 1))
+
+        return {
+          x: pointer.x + (centerX - pointer.x) * magnetism,
+          y: pointer.y + (centerY - pointer.y) * magnetism,
+        }
+      }
+
+      const positionCursor = () => {
+        const nextPosition = getMagneticPosition()
+        cursorPosition.x = nextPosition.x
+        cursorPosition.y = nextPosition.y
+        gsap.set(cursor, nextPosition)
+      }
+
+      const positionTargetFrame = (animate = false) => {
+        if (!activeTarget) return
+
+        const bounds = activeTarget.getBoundingClientRect()
+        const padding = 7
+
+        setCornerPositions([
+          { x: bounds.left - cursorPosition.x - padding, y: bounds.top - cursorPosition.y - padding },
+          { x: bounds.right - cursorPosition.x - 7, y: bounds.top - cursorPosition.y - padding },
+          { x: bounds.right - cursorPosition.x - 7, y: bounds.bottom - cursorPosition.y - 7 },
+          { x: bounds.left - cursorPosition.x - padding, y: bounds.bottom - cursorPosition.y - 7 },
+        ], animate ? 0.18 : 0)
+      }
+
+      const resetTarget = () => {
+        activeTarget = null
+        cursor.dataset.target = 'false'
+        setCornerPositions(restingCornerPositions, 0.14)
+      }
+
+      const activateTarget = (target: HTMLElement) => {
+        activeTarget = target
+        positionCursor()
+        cursor.dataset.target = 'true'
+        positionTargetFrame(true)
+      }
+
+      const onPointerMove = (event: PointerEvent) => {
+        if (event.pointerType && event.pointerType !== 'mouse') return
+
+        pointer.x = event.clientX
+        pointer.y = event.clientY
+        cursor.dataset.visible = 'true'
+        positionCursor()
+        positionTargetFrame()
+      }
+
+      const onPointerOver = (event: PointerEvent) => {
+        if (event.pointerType && event.pointerType !== 'mouse') return
+
+        pointer.x = event.clientX
+        pointer.y = event.clientY
+        cursor.dataset.visible = 'true'
+        const target = getInteractiveTarget(event.target)
+
+        if (target) {
+          activateTarget(target)
+          return
+        }
+
+        positionCursor()
+      }
+
+      const onPointerOut = (event: PointerEvent) => {
+        if (event.pointerType && event.pointerType !== 'mouse') return
+
+        const fromTarget = getInteractiveTarget(event.target)
+        const nextTarget = getInteractiveTarget(event.relatedTarget)
+
+        if (fromTarget && fromTarget !== nextTarget) resetTarget()
+      }
+
+      const hideCursor = () => {
+        cursor.dataset.visible = 'false'
+        resetTarget()
+      }
+
+      const refreshTargetFrame = () => positionTargetFrame()
+
+      window.addEventListener('pointermove', onPointerMove, { passive: true })
+      window.addEventListener('pointerover', onPointerOver, { passive: true })
+      window.addEventListener('pointerout', onPointerOut, { passive: true })
+      window.addEventListener('scroll', refreshTargetFrame, { passive: true })
+      window.addEventListener('resize', refreshTargetFrame, { passive: true })
+      window.addEventListener('blur', hideCursor)
+
+      gsap.set(cursor, pointer)
+      setCornerPositions(restingCornerPositions)
 
       return () => {
-        document.documentElement.classList.remove('has-touch-interface')
+        root.classList.remove('has-desktop-cursor')
+        window.removeEventListener('pointermove', onPointerMove)
+        window.removeEventListener('pointerover', onPointerOver)
+        window.removeEventListener('pointerout', onPointerOut)
+        window.removeEventListener('scroll', refreshTargetFrame)
+        window.removeEventListener('resize', refreshTargetFrame)
+        window.removeEventListener('blur', hideCursor)
+        gsap.killTweensOf([cursor, ...corners])
       }
     }
 
-    const corners = Array.from(
-      cursor.querySelectorAll<HTMLElement>('[data-cursor-corner]'),
-    )
+    const selectInputMode = () => {
+      clearDesktopCursor()
+      resetVisuals()
 
-    const pointer = {
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-    }
-
-    let activeTarget: Element | null = null
-
-    document.documentElement.classList.add('has-target-cursor')
-
-    /*
-     * The original cursor was too responsive because its movement
-     * duration was very short.
-     *
-     * 0.55s gives the cursor a softer, more editorial movement.
-     */
-    const moveX = gsap.quickTo(cursor, 'x', {
-      duration: 0.55,
-      ease: 'power3.out',
-    })
-
-    const moveY = gsap.quickTo(cursor, 'y', {
-      duration: 0.55,
-      ease: 'power3.out',
-    })
-
-    const moveCorners = (
-      positions: { x: number; y: number }[],
-      duration = 0.55,
-    ) => {
-      corners.forEach((corner, index) => {
-        gsap.to(corner, {
-          ...positions[index],
-          duration,
-          ease: 'expo.out',
-          overwrite: 'auto',
-        })
-      })
-    }
-
-    const deactivate = () => {
-      activeTarget = null
-
-      cursor.dataset.active = 'false'
-
-      moveCorners(inactiveCornerPositions, 0.45)
-    }
-
-    const activate = (target: Element) => {
-      const bounds = target.getBoundingClientRect()
-
-      const cursorX =
-        Number(gsap.getProperty(cursor, 'x')) || pointer.x
-
-      const cursorY =
-        Number(gsap.getProperty(cursor, 'y')) || pointer.y
-
-      activeTarget = target
-
-      cursor.dataset.active = 'true'
-
-      moveCorners(
-        [
-          {
-            x: bounds.left - cursorX - 3,
-            y: bounds.top - cursorY - 3,
-          },
-          {
-            x: bounds.right - cursorX - 9,
-            y: bounds.top - cursorY - 3,
-          },
-          {
-            x: bounds.right - cursorX - 9,
-            y: bounds.bottom - cursorY - 9,
-          },
-          {
-            x: bounds.left - cursorX - 3,
-            y: bounds.bottom - cursorY - 9,
-          },
-        ],
-        0.6,
-      )
-    }
-
-    const onMouseMove = (event: MouseEvent) => {
-      pointer.x = event.clientX
-      pointer.y = event.clientY
-
-      moveX(pointer.x)
-      moveY(pointer.y)
-
-      if (activeTarget) {
-        activate(activeTarget)
+      if (desktopPointer.matches) {
+        clearDesktopCursor = setupDesktopCursor()
       }
     }
 
-    const onMouseOver = (event: MouseEvent) => {
-      const target = event.target as HTMLElement | null
-
-      if (!target) return
-
-      const nextTarget = target.closest(TARGET_SELECTOR)
-
-      if (nextTarget) {
-        activate(nextTarget)
-      }
-    }
-
-    const onMouseOut = (event: MouseEvent) => {
-      const target = event.target as HTMLElement | null
-
-      if (!target) return
-
-      const fromTarget = target.closest(TARGET_SELECTOR)
-
-      const relatedTarget =
-        event.relatedTarget as HTMLElement | null
-
-      const toTarget =
-        relatedTarget?.closest?.(TARGET_SELECTOR)
-
-      if (fromTarget && fromTarget !== toTarget) {
-        deactivate()
-      }
-    }
-
-    const onScroll = () => {
-      if (activeTarget) {
-        activate(activeTarget)
-      }
-    }
-
-    window.addEventListener(
-      'mousemove',
-      onMouseMove,
-      { passive: true },
-    )
-
-    window.addEventListener(
-      'mouseover',
-      onMouseOver,
-    )
-
-    window.addEventListener(
-      'mouseout',
-      onMouseOut,
-    )
-
-    window.addEventListener(
-      'scroll',
-      onScroll,
-      { passive: true },
-    )
-
-    moveCorners(
-      inactiveCornerPositions,
-      0,
-    )
+    selectInputMode()
+    desktopPointer.addEventListener('change', selectInputMode)
 
     return () => {
-      document.documentElement.classList.remove(
-        'has-target-cursor',
-      )
-
-      window.removeEventListener(
-        'mousemove',
-        onMouseMove,
-      )
-
-      window.removeEventListener(
-        'mouseover',
-        onMouseOver,
-      )
-
-      window.removeEventListener(
-        'mouseout',
-        onMouseOut,
-      )
-
-      window.removeEventListener(
-        'scroll',
-        onScroll,
-      )
-
-      gsap.killTweensOf(cursor)
-      corners.forEach((corner) => {
-        gsap.killTweensOf(corner)
-      })
+      clearDesktopCursor()
+      desktopPointer.removeEventListener('change', selectInputMode)
+      resetVisuals()
+      gsap.killTweensOf([cursor, ...corners])
     }
   }, [reducedMotion])
 
@@ -249,30 +200,16 @@ export function TargetCursor() {
     <div
       aria-hidden="true"
       className="target-cursor"
-      data-active="false"
+      data-target="false"
+      data-visible="false"
       ref={cursorRef}
     >
-      <div className="target-cursor__dot" />
-
-      <div
-        className="target-cursor__corner target-cursor__corner--tl"
-        data-cursor-corner
-      />
-
-      <div
-        className="target-cursor__corner target-cursor__corner--tr"
-        data-cursor-corner
-      />
-
-      <div
-        className="target-cursor__corner target-cursor__corner--br"
-        data-cursor-corner
-      />
-
-      <div
-        className="target-cursor__corner target-cursor__corner--bl"
-        data-cursor-corner
-      />
+      <span className="target-cursor__core" />
+      <span className="target-cursor__orbiter" />
+      <span className="target-cursor__corner target-cursor__corner--top-left" data-cursor-corner />
+      <span className="target-cursor__corner target-cursor__corner--top-right" data-cursor-corner />
+      <span className="target-cursor__corner target-cursor__corner--bottom-right" data-cursor-corner />
+      <span className="target-cursor__corner target-cursor__corner--bottom-left" data-cursor-corner />
     </div>
   )
 }

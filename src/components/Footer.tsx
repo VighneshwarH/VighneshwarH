@@ -1,20 +1,23 @@
+import { ArrowUp, Phone } from 'lucide-react'
 import { portfolio } from '../data/portfolio'
 import { HoverRoll } from './ui/AnimatedText'
+import { LuGithub, LuLinkedin } from 'react-icons/lu'
+import { FiGithub } from 'react-icons/fi'
 
 export function Footer() {
   return (
     <footer className="site-wrap footer-shell" id="contact">
       <span aria-hidden="true" className="section-rule" />
-      <div className="section-label cursor-target" data-cursor-target><span>05</span><h2>Contact</h2></div>
+      <div className="section-label"><span>05</span><h2>Contact</h2></div>
       <div>
         <p className="footer-prompt">Let’s build something worth keeping.</p>
-        <a className="footer-email" data-cursor-target href={`mailto:${portfolio.email}`}><HoverRoll>{portfolio.email}</HoverRoll></a>
+        <a className="footer-email" href={`mailto:${portfolio.email}`}><HoverRoll>{portfolio.email}</HoverRoll></a>
         <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[0.68rem] uppercase tracking-[0.12em]">
-          <li><a data-cursor-target href={portfolio.links.github} rel="noreferrer" target="_blank"><HoverRoll>GitHub ↗</HoverRoll></a></li>
-          <li><a data-cursor-target href={portfolio.links.linkedin} rel="noreferrer" target="_blank"><HoverRoll>LinkedIn ↗</HoverRoll></a></li>
-          <li><a data-cursor-target href={`mailto:${portfolio.email}`}><HoverRoll>Email ↗</HoverRoll></a></li>
+          <li><a href={portfolio.links.github} rel="noreferrer" target="_blank" data-cursor-target><HoverRoll><FiGithub size={18}/></HoverRoll></a></li>
+          <li><a href={portfolio.links.linkedin} rel="noreferrer" target="_blank" data-cursor-target><HoverRoll><LuLinkedin size={18}/></HoverRoll></a></li>
+          <li><a href={portfolio.links.phone} rel="noreferrer" target="_blank" data-cursor-target><HoverRoll><Phone size={18}/></HoverRoll></a></li>
         </ul>
-        <p className="footer-bottom"><span>© 2026 {portfolio.name}</span><a data-cursor-target href="#top"><HoverRoll>Back to top ↑</HoverRoll></a></p>
+        <p className="footer-bottom"><span>&copy; 2026 {portfolio.name}</span><a aria-label="Back to top" href="#" id="btt" data-cursor-target><ArrowUp aria-hidden="true" size={16} /></a></p>
       </div>
     </footer>
   )

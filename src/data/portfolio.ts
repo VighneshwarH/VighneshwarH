@@ -1,3 +1,5 @@
+import { withBasePath } from '../lib/paths'
+
 export type Project = {
   title: string
   eyebrow: string
@@ -30,13 +32,16 @@ export const portfolio = {
   links: {
     github: 'https://github.com/VighneshwarH',
     linkedin: 'https://www.linkedin.com/in/vighneshwara-vishwanatha-hebbar-vh5487',
+    phone: 'tel: +919110445487'
   },
   hero: {
     title: ['Vighneshwar', 'Hebbar'],
     introduction: 'A designer and developer who can design beautiful UI/UX and develop responsive websites and applications.',
 
-    imageSrc: '/images/portrait.png',
+    imageSrc: [withBasePath('./images/portrait.png'),withBasePath('./images/portrait2.png')],
     imageAlt: 'Portrait placeholder for Vighneshwar Hebbar',
+    signature: withBasePath('/images/Signature.png'),
+    signatureAlt: 'SIgnature placeholder for Vighneshwar Hebbar'
   },
 } as const
 
@@ -48,7 +53,7 @@ export const navigation = [
   ['contact', 'Contact'],
 ] as const
 
-export const roles = ['Full-stack developer', 'UI/UX designer', 'React specialist', 'API architect', 'Design systems']
+export const roles = ['Full-stack developer', 'UI/UX designer']
 
 export const skills = [
   { category: 'Languages', items: [`TypeScript`, 'JavaScript', 'Python', 'SQL','Java'] },
@@ -64,18 +69,18 @@ export const education: Education[] = [
     period: '2019',
     degree: 'SSLC',
     institution: 'V.K.R Acharya Memorial English Medium High School, Kundapura',
-    percent_or_cgpa: 'Add your stream, notable coursework, or academic distinction.',
+    percent_or_cgpa: '90%',
   },
   {
     period: '2020-2022',
-    degree: 'Pre-University Education',
+    degree: 'PUC',
     institution: 'R.N.S Composite PU College, Kundapura',
     percent_or_cgpa: '80%',
   },
   {
     period: '2022 - 2026',
-    degree: 'B.E Computer Science (Data Science)',
-    institution: 'Moodlakatte Institute of Technology',
+    degree: 'B.E CSE(DS)',
+    institution: 'Moodlakatte Institute of Technology, Kundapura',
     percent_or_cgpa: '8.6 CGPA',
   },
 ]

@@ -12,8 +12,8 @@ export function Section({ id, number, title, children }: SectionProps) {
   return (
     <section className="site-wrap section-shell" id={id}>
       <span aria-hidden="true" className="section-rule" />
-      <div className="section-label" data-cursor-target>
-        <span>{number}</span>
+      <div className="section-label">
+        <span>{parseInt(number)+1}</span>
         <h2>{title}</h2>
       </div>
       <div>{children}</div>

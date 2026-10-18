@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#efeae0">
+    <title>Offline — Vighneshwar Hebbar</title>
+    <style>
+      @font-face{font-family:Agency;src:url('./fonts/agency.otf') format('opentype');font-display:swap}
+      :root{--bg:#efeae0;--text:#15130f;--muted:#777267;--line:#c8c0b1;--accent:#d4220e;--soft:#e4ddcf}
+      *{box-sizing:border-box}body{min-width:0;margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+      .offline{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:100svh;overflow:hidden;padding:clamp(1.25rem,4vw,3.5rem);isolation:isolate}
+      .offline:before,.offline:after{position:absolute;z-index:-1;width:min(42vw,35rem);aspect-ratio:1;border:1px solid var(--line);border-radius:50%;content:''}.offline:before{top:-20%;right:-9%}.offline:after{bottom:-28%;left:-12%;width:min(31vw,26rem)}
+      .content{display:grid;grid-template-columns:minmax(0,.9fr) minmax(18rem,1.1fr);align-items:center;gap:clamp(2rem,8vw,9rem);max-width:110rem;width:100%;margin:auto;padding-block:clamp(3rem,7vw,7rem)}.eyebrow{display:flex;align-items:center;gap:.6rem;margin:0 0 1.1rem;color:var(--muted);font-family:ui-monospace,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}.eyebrow i{width:.45rem;height:.45rem;border-radius:50%;background:var(--accent);box-shadow:0 0 0 .2rem rgb(212 34 14 / 16%)}.code{margin:0 0 -.13em -.06em;color:rgb(21 19 15 / 8%);font-family:Agency,'Arial Narrow',sans-serif;font-size:clamp(7rem,18vw,17rem);line-height:.66;letter-spacing:-.085em}.copy h1{position:relative;max-width:9ch;margin:0;font-family:Agency,'Arial Narrow',sans-serif;font-size:clamp(3.45rem,7.3vw,8rem);font-weight:400;line-height:.77;letter-spacing:-.055em}.copy>p:last-of-type{max-width:36ch;margin:1.5rem 0 0;color:var(--muted);font-size:clamp(1rem,1.25vw,1.2rem);font-weight:600;line-height:1.45}.action{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;border:1px solid var(--text);padding:.85rem 1rem;background:var(--text);color:var(--bg);font-family:ui-monospace,monospace;font-size:.65rem;letter-spacing:.1em;line-height:1;text-decoration:none;text-transform:uppercase;transition:background .2s ease,transform .2s ease}.action:hover{transform:translateY(-3px);background:var(--accent)}
+      svg{width:min(100%,39rem);justify-self:end;overflow:visible}.orbit{stroke:var(--line);stroke-width:2;stroke-dasharray:5 7}.orbit--inner{stroke:var(--accent);stroke-dasharray:2 9}.route{stroke:var(--text);stroke-width:2;stroke-dasharray:7 8;opacity:.68}.route--fine{stroke:var(--line);stroke-width:1;stroke-dasharray:3 7}.device rect{fill:var(--soft);stroke:var(--text);stroke-width:3}.device path{stroke:var(--accent);stroke-width:4;stroke-linecap:round}.device circle,.node{fill:var(--accent)}.signal path{stroke:var(--accent);stroke-width:4;stroke-linecap:round}.coordinates{fill:var(--muted);font-family:ui-monospace,monospace;font-size:10px;letter-spacing:1.4px}
+      @media(max-width:800px){.content{grid-template-columns:1fr;gap:2rem;padding-block:3rem 2rem}svg{width:min(100%,31rem);justify-self:start;order:-1}.copy h1{max-width:11ch}.code{font-size:clamp(7rem,29vw,11rem)}}@media(max-width:500px){.offline{padding:1rem}.content{padding-block:2.35rem 1.75rem}.copy h1{font-size:clamp(3.1rem,15vw,4.75rem)}}
+    </style>
+  </head>
+  <body>
+    <main class="offline">
+      <section class="content">
+        <div class="copy">
+          <p class="eyebrow"><i></i>Connection interrupted</p>
+          <p class="code" aria-hidden="true">OFF</p>
+          <h1>You&apos;re temporarily out of range.</h1>
+          <p>Check your connection, then try again. Your place here will be waiting for you.</p>
+          <a class="action" href="./">Retry connection&nbsp; ↻</a>
+        </div>
+        <svg aria-label="Abstract illustration of a disconnected signal" fill="none" role="img" viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg">
+          <path class="orbit" d="M92 217C92 115 175 32 278 32C381 32 464 115 464 217"/><path class="orbit orbit--inner" d="M124 217C124 132 193 63 278 63C363 63 432 132 432 217"/><path class="route" d="M40 331H138L181 288H235M325 288H379L422 331H520"/><path class="route route--fine" d="M83 386H177L220 343H336L379 386H477"/><g class="device"><rect x="203" y="154" width="150" height="132" rx="16"/><path d="M231 261H325"/><path d="M254 235L302 187"/><circle cx="248" cy="192" r="7"/><circle cx="309" cy="253" r="7"/></g><g class="signal"><path d="M151 109L195 153"/><path d="M151 153L195 109"/><path d="M361 109L405 153"/><path d="M361 153L405 109"/></g><circle class="node" cx="40" cy="331" r="7"/><circle class="node" cx="520" cy="331" r="7"/><text class="coordinates" x="40" y="281">NO NETWORK</text><text class="coordinates" x="379" y="281">TRY AGAIN</text>
+        </svg>
+      </section>
+    </main>
+  </body>
+</html>

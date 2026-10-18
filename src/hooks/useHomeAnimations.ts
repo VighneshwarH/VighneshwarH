@@ -40,6 +40,45 @@ export function useHomeAnimations(
           '-=0.9',
         )
 
+      gsap.utils.toArray<HTMLElement>('.section-shell, .footer-shell').forEach((section) => {
+        gsap.fromTo(section, {
+          autoAlpha: 0,
+          y: 28,
+        }, {
+          autoAlpha: 1,
+          duration: 0.72,
+          ease: 'power3.out',
+          y: 0,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 84%',
+            end: 'bottom 16%',
+            toggleActions: 'play reverse play reverse',
+          },
+        })
+      })
+
+      root.querySelectorAll<HTMLElement>('[data-project-title]').forEach((title) => {
+        const letters = Array.from(title.querySelectorAll<HTMLElement>('.roll-character'))
+
+        const titleTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 82%',
+            end: 'bottom 18%',
+            toggleActions: 'play reverse play reverse',
+          },
+        })
+
+        letters.forEach((letter, index) => {
+          titleTimeline.to(Array.from(letter.children), {
+            yPercent: -100,
+            duration: 0.46,
+            ease: 'power3.out',
+          }, index * 0.028)
+        })
+      })
+
       gsap.utils.toArray<HTMLElement>('.section-rule').forEach((rule) => {
         gsap.from(rule, {
           scaleX: 0,
@@ -48,6 +87,8 @@ export function useHomeAnimations(
           scrollTrigger: {
             trigger: rule,
             start: 'top 90%',
+            end: 'bottom 10%',
+            toggleActions: 'play reverse play reverse',
           },
         })
       })

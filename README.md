@@ -1,3 +1,44 @@
+# Vighneshwar Hebbar — Portfolio
+
+This project uses Next.js with the App Router, Tailwind CSS, GSAP, and Motion. It is configured as a static export so it can be hosted on GitHub Pages, Vercel, or Netlify without platform-specific application code.
+
+## Local development
+
+Use Node.js 24 (or any version supported by the `engines` field), then run:
+
+```bash
+npm ci
+npm run dev
+```
+
+`npm run build` creates the deployable site in `out/`. Run `npm run lint` and `npm run typecheck` before publishing changes.
+
+## Deployment
+
+### GitHub Pages
+
+1. In the repository's **Settings → Pages**, set the source to **GitHub Actions**.
+2. Push to `main` or run **Deploy portfolio to GitHub Pages** from the Actions tab.
+
+The workflow builds `out/` and sets the correct repository path automatically, so public assets work for both project sites (`/<repository>/`) and custom domains.
+
+### Vercel
+
+Import the repository in Vercel and keep the detected **Next.js** framework preset. The default `npm run build` command deploys the static export. Leave `NEXT_PUBLIC_BASE_PATH` unset unless the site will be served below a URL path.
+
+### Netlify
+
+Import the repository in Netlify. `netlify.toml` sets the build command to `npm run build` and publishes `out/`. Leave `NEXT_PUBLIC_BASE_PATH` unset for the site root.
+
+## Configuration
+
+- `next.config.ts` enables static export, trailing-slash URLs, and static-image handling.
+- `vercel.json` declares the Next.js framework for Vercel.
+- `.github/workflows/deploy-pages.yml` is the only GitHub Pages workflow and has the minimum deployment permissions.
+- `NEXT_PUBLIC_BASE_PATH` is reserved for a public path prefix such as `/portfolio`; it must begin with `/`.
+
+---
+
 <div>
   <img style="100%" src="https://capsule-render.vercel.app/api?type=waving&height=133&section=header&reversal=false&fontSize=70&fontColor=FFFFFF&fontAlign=50&fontAlignY=50&stroke=-&descSize=20&descAlign=50&descAlignY=50&color=00ff"  />
 </div>
