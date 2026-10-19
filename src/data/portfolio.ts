@@ -32,6 +32,7 @@ export const portfolio = {
   links: {
     github: 'https://github.com/VighneshwarH',
     linkedin: 'https://www.linkedin.com/in/vighneshwara-vishwanatha-hebbar-vh5487',
+    instagram: 'https://www.instagram.com/h__vighneshofficial/',
     phone: 'tel: +919110445487'
   },
   hero: {

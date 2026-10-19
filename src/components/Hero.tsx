@@ -3,6 +3,7 @@ import { portfolio, roles } from "../data/portfolio";
 import { HoverRoll } from "./ui/AnimatedText";
 import { useEffect, useState } from "react";
 import ResumeModal from "./ui/ResumeModal";
+import { LuContact } from "react-icons/lu";
 
 function HeroWord({
   word,
@@ -101,9 +102,7 @@ export function Hero() {
                 <span aria-hidden="true">↘</span>
               </a>
 
-              <a className="button rounded-lg" data-cursor-target href="#contact">
-                <HoverRoll>Start a conversation</HoverRoll>
-              </a>
+              
               <a
                 className="button rounded-lg"
                 data-cursor-target
