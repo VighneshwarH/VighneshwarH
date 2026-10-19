@@ -151,7 +151,7 @@ export function Header() {
 
   return (
     <>
-      <header className={`site-header pointer-events-none sticky top-0 z-200 backdrop-blur-xl ${isMenuOpen ? 'site-header--menu-open' : ''}`}>
+      <header className={`site-header pointer-events-none sticky top-0 z-200 backdrop-blur-xl shadow-sm shadow-[#d4220e40] ${isMenuOpen ? 'site-header--menu-open' : ''}`}>
         <nav aria-label="Primary" className="site-wrap pointer-events-auto flex items-center justify-between gap-6 py-4">
         <a aria-label={`${portfolio.name}, home`} className="logo" data-cursor-target href="#">
           {`${portfolio.shortName}`}<span className='dot'>.</span>

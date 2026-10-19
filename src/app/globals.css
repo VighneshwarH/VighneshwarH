@@ -1808,7 +1808,7 @@ main{padding-top:4.5rem}
     position:relative;
     display:grid;
     gap:.15rem;
-    margin:clamp(2.5rem,8vh,5rem) 0 auto;
+    margin:clamp(1.5rem,6vh,3rem) 0 auto;
     padding:0;
     list-style:none;
   }
