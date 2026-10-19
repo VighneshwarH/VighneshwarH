@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import NetworkStatus from '@/components/NetworkStatus'
+import { withBasePath } from '@/lib/paths'
 import { agency, dmMono, instrumentSans } from './fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Vighneshwar Hebbar | Portfolio',
   description: 'Portfolio of Vighneshwar Hebbar, full-stack developer and UI/UX designer.',
-  icons:{
-    icon: '/images/favicon.ico'
-  }
+  icons: {
+    icon: withBasePath('/images/favicon.ico'),
+  },
 }
 
 export const viewport: Viewport = {
